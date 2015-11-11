@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+m151110_104735_create_users_table	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^class m151110_104735_create_users_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^        $tableOptions = null;$/;"	variable	line:12
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:14
+down	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function down()$/;"	function	line:42
+safeUp	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeUp()$/;"	function	line:49
+safeDown	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeDown()$/;"	function	line:53

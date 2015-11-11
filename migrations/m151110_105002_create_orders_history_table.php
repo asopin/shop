@@ -7,14 +7,12 @@ class m151110_105002_create_orders_history_table extends Migration
 {
     public function up()
     {
-
+        // TODO: create table
     }
 
     public function down()
     {
-        echo "m151110_105002_create_orders_history_table cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%orders_history}}');
     }
 
     /*

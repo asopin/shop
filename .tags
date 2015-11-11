@@ -1,0 +1,61 @@
+m151110_104438_create_catalog_table	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^class m151110_104438_create_catalog_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^    public function down()$/;"	function	line:45
+safeUp	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^    public function safeUp()$/;"	function	line:54
+safeDown	/Users/as/Sites/shop/migrations/m151110_104438_create_catalog_table.php	/^    public function safeDown()$/;"	function	line:58
+m151110_104533_create_categories_table	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^class m151110_104533_create_categories_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^    public function down()$/;"	function	line:33
+safeUp	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^    public function safeUp()$/;"	function	line:40
+safeDown	/Users/as/Sites/shop/migrations/m151110_104533_create_categories_table.php	/^    public function safeDown()$/;"	function	line:44
+m151110_104559_create_delivery_methods_table	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^class m151110_104559_create_delivery_methods_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^    public function down()$/;"	function	line:33
+safeUp	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^    public function safeUp()$/;"	function	line:40
+safeDown	/Users/as/Sites/shop/migrations/m151110_104559_create_delivery_methods_table.php	/^    public function safeDown()$/;"	function	line:44
+m151110_104652_create_orders_table	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^class m151110_104652_create_orders_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^    public function down()$/;"	function	line:43
+safeUp	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^    public function safeUp()$/;"	function	line:52
+safeDown	/Users/as/Sites/shop/migrations/m151110_104652_create_orders_table.php	/^    public function safeDown()$/;"	function	line:56
+m151110_104705_create_order_statuses_table	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^class m151110_104705_create_order_statuses_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^    public function down()$/;"	function	line:33
+safeUp	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^    public function safeUp()$/;"	function	line:40
+safeDown	/Users/as/Sites/shop/migrations/m151110_104705_create_order_statuses_table.php	/^    public function safeDown()$/;"	function	line:44
+m151110_104723_create_sessions_table	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^class m151110_104723_create_sessions_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^        $tableOptions = null;$/;"	variable	line:12
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:14
+down	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^    public function down()$/;"	function	line:34
+safeUp	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^    public function safeUp()$/;"	function	line:41
+safeDown	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^    public function safeDown()$/;"	function	line:45
+m151110_104635_create_images_table	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^class m151110_104635_create_images_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^        $tableOptions = null;$/;"	variable	line:10
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:12
+down	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^    public function down()$/;"	function	line:40
+safeUp	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^    public function safeUp()$/;"	function	line:49
+safeDown	/Users/as/Sites/shop/migrations/m151110_104635_create_images_table.php	/^    public function safeDown()$/;"	function	line:53
+m151110_105002_create_orders_history_table	/Users/as/Sites/shop/migrations/m151110_105002_create_orders_history_table.php	/^class m151110_105002_create_orders_history_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_105002_create_orders_history_table.php	/^    public function up()$/;"	function	line:8
+down	/Users/as/Sites/shop/migrations/m151110_105002_create_orders_history_table.php	/^    public function down()$/;"	function	line:13
+safeUp	/Users/as/Sites/shop/migrations/m151110_105002_create_orders_history_table.php	/^    public function safeUp()$/;"	function	line:20
+safeDown	/Users/as/Sites/shop/migrations/m151110_105002_create_orders_history_table.php	/^    public function safeDown()$/;"	function	line:24
+m151110_104735_create_users_table	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^class m151110_104735_create_users_table extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function up()$/;"	function	line:8
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^        $tableOptions = null;$/;"	variable	line:12
+tableOptions	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';$/;"	variable	line:14
+down	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function down()$/;"	function	line:42
+safeUp	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeUp()$/;"	function	line:49
+safeDown	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeDown()$/;"	function	line:53

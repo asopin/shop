@@ -59,3 +59,43 @@ tableOptions	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.p
 down	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function down()$/;"	function	line:42
 safeUp	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeUp()$/;"	function	line:49
 safeDown	/Users/as/Sites/shop/migrations/m151110_104735_create_users_table.php	/^    public function safeDown()$/;"	function	line:53
+name	/Users/as/Sites/shop/composer.json	/^    "name": "yiisoft\/yii2-app-basic",$/;"	function	line:2
+description	/Users/as/Sites/shop/composer.json	/^    "description": "Yii 2 Basic Project Template",$/;"	function	line:3
+keywords	/Users/as/Sites/shop/composer.json	/^    "keywords": ["yii2", "framework", "basic", "project template"],$/;"	function	line:4
+homepage	/Users/as/Sites/shop/composer.json	/^    "homepage": "http:\/\/www.yiiframework.com\/",$/;"	function	line:5
+type	/Users/as/Sites/shop/composer.json	/^    "type": "project",$/;"	function	line:6
+license	/Users/as/Sites/shop/composer.json	/^    "license": "BSD-3-Clause",$/;"	function	line:7
+support	/Users/as/Sites/shop/composer.json	/^    "support": {$/;"	function	line:8
+issues	/Users/as/Sites/shop/composer.json	/^        "issues": "https:\/\/github.com\/yiisoft\/yii2\/issues?state=open",$/;"	function	line:9
+forum	/Users/as/Sites/shop/composer.json	/^        "forum": "http:\/\/www.yiiframework.com\/forum\/",$/;"	function	line:10
+wiki	/Users/as/Sites/shop/composer.json	/^        "wiki": "http:\/\/www.yiiframework.com\/wiki\/",$/;"	function	line:11
+irc	/Users/as/Sites/shop/composer.json	/^        "irc": "irc:\/\/irc.freenode.net\/yii",$/;"	function	line:12
+source	/Users/as/Sites/shop/composer.json	/^        "source": "https:\/\/github.com\/yiisoft\/yii2"$/;"	function	line:13
+minimum-stability	/Users/as/Sites/shop/composer.json	/^    "minimum-stability": "stable",$/;"	function	line:15
+require	/Users/as/Sites/shop/composer.json	/^    "require": {$/;"	function	line:16
+php	/Users/as/Sites/shop/composer.json	/^        "php": ">=5.4.0",$/;"	function	line:17
+yiisoft/yii2	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2": ">=2.0.5",$/;"	function	line:18
+yiisoft/yii2-bootstrap	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-bootstrap": "*",$/;"	function	line:19
+yiisoft/yii2-swiftmailer	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-swiftmailer": "*",$/;"	function	line:20
+dektrium/yii2-user	/Users/as/Sites/shop/composer.json	/^        "dektrium\/yii2-user": "*"$/;"	function	line:21
+require-dev	/Users/as/Sites/shop/composer.json	/^    "require-dev": {$/;"	function	line:23
+yiisoft/yii2-codeception	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-codeception": "*",$/;"	function	line:24
+yiisoft/yii2-debug	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-debug": "*",$/;"	function	line:25
+yiisoft/yii2-gii	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-gii": "*",$/;"	function	line:26
+yiisoft/yii2-faker	/Users/as/Sites/shop/composer.json	/^        "yiisoft\/yii2-faker": "*"$/;"	function	line:27
+config	/Users/as/Sites/shop/composer.json	/^    "config": {$/;"	function	line:29
+process-timeout	/Users/as/Sites/shop/composer.json	/^        "process-timeout": 1800$/;"	function	line:30
+scripts	/Users/as/Sites/shop/composer.json	/^    "scripts": {$/;"	function	line:32
+post-create-project-cmd	/Users/as/Sites/shop/composer.json	/^        "post-create-project-cmd": [$/;"	function	line:33
+extra	/Users/as/Sites/shop/composer.json	/^    "extra": {$/;"	function	line:37
+yii\\composer\\Installer::postCreateProject	/Users/as/Sites/shop/composer.json	/^        "yii\\\\composer\\\\Installer::postCreateProject": {$/;"	function	line:38
+setPermission	/Users/as/Sites/shop/composer.json	/^            "setPermission": [$/;"	function	line:39
+runtime	/Users/as/Sites/shop/composer.json	/^                    "runtime": "0777",$/;"	function	line:41
+web/assets	/Users/as/Sites/shop/composer.json	/^                    "web\/assets": "0777",$/;"	function	line:42
+yii	/Users/as/Sites/shop/composer.json	/^                    "yii": "0755"$/;"	function	line:43
+generateCookieValidationKey	/Users/as/Sites/shop/composer.json	/^            "generateCookieValidationKey": [$/;"	function	line:46
+asset-installer-paths	/Users/as/Sites/shop/composer.json	/^        "asset-installer-paths": {$/;"	function	line:50
+npm-asset-library	/Users/as/Sites/shop/composer.json	/^            "npm-asset-library": "vendor\/npm",$/;"	function	line:51
+bower-asset-library	/Users/as/Sites/shop/composer.json	/^            "bower-asset-library": "vendor\/bower"$/;"	function	line:52
+params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
+config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5

@@ -9,7 +9,7 @@ class m151110_104253_create_baskets_table extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 
 /*
@@ -34,12 +34,14 @@ CREATE TABLE `baskets` (
                 'date_added' => Schema::TYPE_DATETIME . ' NOT NULL',
                 'date_modified' => Schema::TYPE_DATETIME . ' NOT NULL',
         ], $tableOptions);
-        $this->addForeignKey('fk_baskets_user_id', '{{%baskets}}', 'user_id', '{{%users}}', 'id', 'CASCADE', 'CASCADE');
+
+        // Decided to add all foreign keys in separate migration
+        // $this->addForeignKey('fk_baskets_user_id', '{{%baskets}}', 'user_id', '{{%users}}', 'id', 'CASCADE', 'CASCADE');
     }
 
     public function down()
     {
-        $this->dropForeignKey('fk_baskets_user_id', '{{%baskets}}');
+        // $this->dropForeignKey('fk_baskets_user_id', '{{%baskets}}');
         $this->dropTable('{{%baskets}}');
     }
 

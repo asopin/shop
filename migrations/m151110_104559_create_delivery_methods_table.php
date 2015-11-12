@@ -9,7 +9,7 @@ class m151110_104559_create_delivery_methods_table extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 
         /*
@@ -32,7 +32,7 @@ class m151110_104559_create_delivery_methods_table extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%delivery_methods}}')
+        $this->dropTable('{{%delivery_methods}}');
     }
 
     /*

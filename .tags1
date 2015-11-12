@@ -4,5 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
-config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
+m151112_080142_create_init_foreign_keys	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^class m151112_080142_create_init_foreign_keys extends Migration$/;"	class	line:6
+up	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function up()$/;"	function	line:8
+down	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function down()$/;"	function	line:21
+safeUp	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeUp()$/;"	function	line:36
+safeDown	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeDown()$/;"	function	line:40

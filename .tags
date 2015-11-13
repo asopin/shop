@@ -41,8 +41,6 @@ generateCookieValidationKey	/Users/as/Sites/shop/composer.json	/^            "ge
 asset-installer-paths	/Users/as/Sites/shop/composer.json	/^        "asset-installer-paths": {$/;"	function	line:50
 npm-asset-library	/Users/as/Sites/shop/composer.json	/^            "npm-asset-library": "vendor\/npm",$/;"	function	line:51
 bower-asset-library	/Users/as/Sites/shop/composer.json	/^            "bower-asset-library": "vendor\/bower"$/;"	function	line:52
-params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
-config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
 m151110_104723_create_sessions_table	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^class m151110_104723_create_sessions_table extends Migration$/;"	class	line:6
 up	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^    public function up()$/;"	function	line:8
 tableOptions	/Users/as/Sites/shop/migrations/m151110_104723_create_sessions_table.php	/^        $tableOptions = null;$/;"	variable	line:12
@@ -104,3 +102,5 @@ up	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/
 down	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function down()$/;"	function	line:21
 safeUp	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeUp()$/;"	function	line:36
 safeDown	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeDown()$/;"	function	line:40
+params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
+config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5

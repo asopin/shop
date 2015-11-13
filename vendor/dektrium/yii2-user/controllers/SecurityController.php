@@ -104,7 +104,7 @@ class SecurityController extends Controller
         $this->performAjaxValidation($model);
 
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
-            return $this->goBack();
+                return $this->goBack();
         }
 
         return $this->render('login', [

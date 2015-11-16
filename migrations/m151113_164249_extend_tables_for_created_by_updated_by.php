@@ -37,11 +37,6 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
 
     public function down()
     {
-        // TODO: add reversion for columns and foreign keys added above
-        // echo "m151113_164249_extend_tables_for_created_by_updated_by cannot be reverted.\n";
-        //
-        // return false;
-
         $this->dropForeignKey('catalog_updated_byFK', '{{%catalog}}');
         $this->dropColumn('{{%catalog}}', 'updated_by');
 

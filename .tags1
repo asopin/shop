@@ -4,5 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
-config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5

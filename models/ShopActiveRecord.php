@@ -7,6 +7,7 @@ use yii\db\ActiveRecord;
 //use yii\behaviors\SluggableBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 use Yii;
 
 
@@ -39,7 +40,7 @@ class ShopActiveRecord extends yii\db\ActiveRecord
                 'createdByAttribute' => 'created_by',
                 'updatedByAttribute' => 'updated_by',
             ],
-        ],
+        ];
     }
 }
  ?>

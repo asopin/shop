@@ -61,10 +61,39 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <div class="col-md-2">
+            <?php
+            $leftMenuItems = [
+                [
+                    'label' => 'Categories',
+                    'url' => [
+                        'categories/index'
+                    ],
+                ],
+                [
+                    'label' => 'Delivery Methods',
+                    'url' => [
+                        'delivery-methods/index'
+                    ],
+                ],
+                [
+                    'label' => 'Order Statuses',
+                    'url' => [
+                        'order-statuses/index'
+                    ],
+                ],
+            ];
+            echo Nav::widget([
+                'items' => $leftMenuItems,
+            ]);
+            ?>
+        </div>
+        <div class="col-md-10">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= $content ?>
+        </div>
     </div>
 </div>
 

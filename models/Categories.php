@@ -15,7 +15,7 @@ use Yii;
  * @property integer $created_by
  * @property integer $updated_by
  *
- * @property Catalog[] $catalogs
+ * @property Product[] $products
  * @property User $createdBy
  * @property User $updatedBy
  * @property Categories $parentCategory
@@ -64,9 +64,9 @@ class Categories extends \app\models\ShopActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCatalogs()
+    public function getProducts()
     {
-        return $this->hasMany(Catalog::className(), ['category_id' => 'category_id']);
+        return $this->hasMany(Product::className(), ['category_id' => 'category_id']);
     }
 
     /**

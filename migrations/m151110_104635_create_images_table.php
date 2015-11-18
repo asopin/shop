@@ -33,7 +33,7 @@ class m151110_104635_create_images_table extends Migration
             'date_modified' => Schema::TYPE_DATETIME . ' NOT NULL',
         ], $tableOptions);
 
-        // TODO: add foreign key on item_id to catalog
+        // TODO: add foreign key on item_id to product
 
     }
 

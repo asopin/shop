@@ -8,10 +8,10 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
     public function up()
     {
         // adds two fields to table to track who created or updated an item. For internal use
-        // $this->addColumn('{{%catalog}}', 'created_by', Schema::TYPE_INTEGER . ' NOT NULL');
-        // $this->addForeignKey('catalog_created_byFK', '{{%catalog}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
-        $this->addColumn('{{%catalog}}', 'updated_by', Schema::TYPE_INTEGER . ' NOT NULL');
-        $this->addForeignKey('catalog_updated_byFK', '{{%catalog}}', 'updated_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
+        // $this->addColumn('{{%product}}', 'created_by', Schema::TYPE_INTEGER . ' NOT NULL');
+        // $this->addForeignKey('product_created_byFK', '{{%product}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
+        $this->addColumn('{{%product}}', 'updated_by', Schema::TYPE_INTEGER . ' NOT NULL');
+        $this->addForeignKey('product_updated_byFK', '{{%product}}', 'updated_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
 
         $this->addColumn('{{%categories}}', 'created_by', Schema::TYPE_INTEGER . ' NOT NULL');
         $this->addForeignKey('categories_created_byFK', '{{%categories}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
@@ -37,8 +37,8 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
 
     public function down()
     {
-        $this->dropForeignKey('catalog_updated_byFK', '{{%catalog}}');
-        $this->dropColumn('{{%catalog}}', 'updated_by');
+        $this->dropForeignKey('product_updated_byFK', '{{%product}}');
+        $this->dropColumn('{{%product}}', 'updated_by');
 
         $this->dropForeignKey('categories_created_byFK', '{{%categories}}');
         $this->dropColumn('{{%categories}}', 'created_by');

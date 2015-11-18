@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m151110_104438_create_catalog_table extends Migration
+class m151110_104438_create_product_table extends Migration
 {
     public function up()
     {
@@ -13,7 +13,7 @@ class m151110_104438_create_catalog_table extends Migration
         }
 
         /*
-            CREATE TABLE `catalog` (
+            CREATE TABLE `product` (
               `item_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `category_id` int(11) unsigned NOT NULL,
               `name` varchar(100) NOT NULL DEFAULT '',
@@ -27,7 +27,7 @@ class m151110_104438_create_catalog_table extends Migration
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
          */
 
-        $this->createTable('{{%catalog}}', [
+        $this->createTable('{{%product}}', [
             'item_id' => Schema::TYPE_PK,
             'category_id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'name' => Schema::TYPE_STRING . ' NOT NULL',
@@ -46,7 +46,7 @@ class m151110_104438_create_catalog_table extends Migration
     {
         // TODO: drop foreign key to categories table
 
-        $this->dropTable('{{%catalog}}');
+        $this->dropTable('{{%product}}');
     }
 
     /*

@@ -63,7 +63,16 @@ AppAsset::register($this);
     <div class="container">
         <div class="col-md-2">
             <?php
+            // show left menu items
             $leftMenuItems = [
+                [
+                    // TODO: add expanding menu based on categories tree
+                    'label' => 'Product',
+                    'url' => [
+                        'product/index'
+                    ],
+                ],
+                // TODO: this should be visible only to users with Admin/Moderator permissions
                 [
                     'label' => 'Categories',
                     'url' => [
@@ -89,6 +98,7 @@ AppAsset::register($this);
             ?>
         </div>
         <div class="col-md-10">
+            <!-- show content -->
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>

@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use yii\web\Model;
+use yii\base\Model;
 use yii\web\UploadedFile;
 
 class MultipleUploadForm extends Model

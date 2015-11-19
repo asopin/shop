@@ -3,17 +3,23 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\MultipleUploadForm;
+use app\models\Product;
 use app\models\Images;
 use app\models\ImagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ImagesController implements the CRUD actions for Images model.
  */
 class ImagesController extends Controller
 {
+    // trying to avoid exception 'yii\web\BadRequestHttpException' with message 'Missing required parameters: itemId' on delete
+    // public $enableCsrfValidation = false;
+
     public function behaviors()
     {
         return [
@@ -30,14 +36,44 @@ class ImagesController extends Controller
      * Lists all Images models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($itemId)
     {
+        if (!Product::find()->where(['item_id' => $itemId])->exists()) {
+            throw new NotFoundHttpException();
+        }
+
+        $form = new MultipleUploadForm();
+
         $searchModel = new ImagesSearch();
+        $searchModel->item_id = $itemId;
+
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        if (Yii::$app->request->isPost) {
+            $form->files = UploadedFile::getInstances($form, 'files');
+
+            // debug Yii::trace($form);
+
+            if ($form->files && $form->validate()) {
+                foreach ($form->files as $file) {
+                    $images = new Images();
+                    $images->item_id = $itemId;
+
+                    $images->big_image = $images->getPath();
+
+                    // debug Yii::trace($images);
+
+                    if ($images->save()) {
+                        $file->saveAs($images->getPath());
+                    }
+                }
+            }
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'uploadForm' => $form,
         ]);
     }
 
@@ -46,10 +82,10 @@ class ImagesController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($itemId)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($itemId),
         ]);
     }
 
@@ -63,7 +99,7 @@ class ImagesController extends Controller
         $model = new Images();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->image_id]);
+            return $this->redirect(['view', 'imageId' => $model->image_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,7 +118,7 @@ class ImagesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->image_id]);
+            return $this->redirect(['view', 'imageId' => $model->image_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -98,9 +134,22 @@ class ImagesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        // debug
+        Yii::trace($id);
 
-        return $this->redirect(['index']);
+        $image = $this->findModel($id);
+        // debug
+        Yii::trace($image);
+
+        $itemId = $image->item_id;
+        // debug
+        Yii::trace($itemId);
+
+        $image->delete();
+        // debug
+        Yii::trace($itemId);
+
+        return $this->redirect(['index', 'itemId' => $itemId]);
     }
 
     /**

@@ -37,7 +37,9 @@ class Images extends \app\models\ShopActiveRecord
     public function rules()
     {
         return [
-            [['item_id', 'date_added', 'date_modified', 'created_by', 'updated_by'], 'required'],
+            [['item_id'], 'required'],
+            // commented because date* and *by fields are handled by behaviors
+            //   'date_added', 'date_modified', 'created_by', 'updated_by'], 'required'],
             [['item_id', 'created_by', 'updated_by'], 'integer'],
             [['date_added', 'date_modified'], 'safe'],
             [['description', 'big_image', 'thumbnail'], 'string', 'max' => 255]
@@ -85,4 +87,35 @@ class Images extends \app\models\ShopActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
+
+    /**
+     * @return string image hash
+     */
+    protected function getHash()
+    {
+        return md5($this->item_id . '-' . $this->image_id);
+    }
+
+    /**
+     * @return string path to image file
+     */
+    public function getPath()
+    {
+        return Yii::getAlias('@app/web/images/' . $this->getHash() . '.jpg');
+    }
+
+    /**
+     * @return string URL of the image
+     */
+    public function getUrl()
+    {
+        return Yii::getAlias('@webroot/images/' . $this->getHash() . '.jpg');
+    }
+
+    public function afterDelete()
+    {
+        unlink($this->getPath());
+        parent::afterDelete();
+    }
+
 }

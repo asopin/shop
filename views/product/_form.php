@@ -22,15 +22,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'in_stock')->textInput() ?>
 
+    <?= $form->field($model, 'active')->textInput() ?>
+
+    <!-- removed because these fields are handled by behaviors
     <?= $form->field($model, 'date_added')->textInput() ?>
 
     <?= $form->field($model, 'date_modified')->textInput() ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
-
     <?= $form->field($model, 'created_by')->textInput() ?>
 
     <?= $form->field($model, 'updated_by')->textInput() ?>
+    -->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -102,5 +102,22 @@ up	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/
 down	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function down()$/;"	function	line:21
 safeUp	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeUp()$/;"	function	line:36
 safeDown	/Users/as/Sites/shop/migrations/m151112_080142_create_init_foreign_keys.php	/^    public function safeDown()$/;"	function	line:40
+CatalogController	/Users/as/Sites/shop/controllers/CatalogController.php	/^class CatalogController extends Controller$/;"	class	line:13
+beforeAction	/Users/as/Sites/shop/controllers/CatalogController.php	/^    public function beforeAction($action)$/;"	function	line:18
+actionList	/Users/as/Sites/shop/controllers/CatalogController.php	/^    public function actionList($categoryId = null)$/;"	function	line:28
+category	/Users/as/Sites/shop/controllers/CatalogController.php	/^        $category = null;$/;"	variable	line:31
+categories	/Users/as/Sites/shop/controllers/CatalogController.php	/^        $categories = Categories::find()->indexBy('category_id')->orderBy('category_id')->all();$/;"	variable	line:33
+productsQuery	/Users/as/Sites/shop/controllers/CatalogController.php	/^        $productsQuery = Product::find();$/;"	variable	line:35
+category	/Users/as/Sites/shop/controllers/CatalogController.php	/^            $category = $categories[$categoryId];$/;"	variable	line:37
+productsDataProvider	/Users/as/Sites/shop/controllers/CatalogController.php	/^        $productsDataProvider = new ActiveDataProvider([$/;"	variable	line:41
+actionView	/Users/as/Sites/shop/controllers/CatalogController.php	/^    public function actionView()$/;"	function	line:55
+getMenuItems	/Users/as/Sites/shop/controllers/CatalogController.php	/^    private function getMenuItems($categories, $activeId = null, $parent = null)$/;"	function	line:66
+activeId	/Users/as/Sites/shop/controllers/CatalogController.php	/^    private function getMenuItems($categories, $activeId = null, $parent = null)$/;"	variable	line:66
+menuItems	/Users/as/Sites/shop/controllers/CatalogController.php	/^        $menuItems = [];$/;"	variable	line:68
+activeId	/Users/as/Sites/shop/controllers/CatalogController.php	/^                    'active' => $activeId === $category->category_id,$/;"	variable	line:72
+getCategoryIds	/Users/as/Sites/shop/controllers/CatalogController.php	/^    private function getCategoryIds($categories, $categoryId, &$categoryIds = [])$/;"	function	line:90
+title	/Users/as/Sites/shop/views/catalog/list.php	/^$title = $category === null ? 'Welcome!' : $category->category_name;$/;"	variable	line:7
+title	/Users/as/Sites/shop/views/catalog/list.php	/^$this->title = Html::encode($title);$/;"	variable	line:8
 params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
 config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
+images	/Users/as/Sites/shop/views/catalog/_product.php	/^        $images = $model->images;$/;"	variable	line:9

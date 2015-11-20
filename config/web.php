@@ -55,6 +55,8 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
+    // TODO: uncomment when CatalogController and its views will be available
+    'defaultRoute' => 'catalog/list',
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',

@@ -43,13 +43,13 @@ class CategoriesController extends Controller
 
     /**
      * Displays a single Categories model.
-     * @param integer $id
+     * @param integer $categoryId
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($categoryId)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($categoryId),
         ]);
     }
 
@@ -58,15 +58,19 @@ class CategoriesController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($categoryId = null)
     {
+        $categories = Categories::find()->all();
         $model = new Categories();
+        $model->parent_category_id = $categoryId;
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->category_id]);
+            return $this->redirect(['view', 'categoryId' => $model->category_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categories' => $categories,
             ]);
         }
     }
@@ -74,18 +78,21 @@ class CategoriesController extends Controller
     /**
      * Updates an existing Categories model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $categoryId
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($categoryId)
     {
-        $model = $this->findModel($id);
+        // TODO: add dropdown functionality
+        $categories = Categories::find()->all();
+        $model = $this->findModel($categoryId);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->category_id]);
+            return $this->redirect(['view', 'categoryId' => $model->category_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => $categories,
             ]);
         }
     }
@@ -96,9 +103,9 @@ class CategoriesController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($categoryId)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($categoryId)->delete();
 
         return $this->redirect(['index']);
     }
@@ -110,9 +117,9 @@ class CategoriesController extends Controller
      * @return Categories the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($categoryId)
     {
-        if (($model = Categories::findOne($id)) !== null) {
+        if (($model = Categories::findOne($categoryId)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

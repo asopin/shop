@@ -121,3 +121,21 @@ title	/Users/as/Sites/shop/views/catalog/list.php	/^$this->title = Html::encode(
 params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
 config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
 images	/Users/as/Sites/shop/views/catalog/_product.php	/^        $images = $model->images;$/;"	variable	line:9
+title	/Users/as/Sites/shop/views/categories/create.php	/^$this->title = Yii::t('app', 'Create Categories');$/;"	variable	line:10
+form	/Users/as/Sites/shop/views/categories/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14
+title	/Users/as/Sites/shop/views/categories/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
+title	/Users/as/Sites/shop/views/categories/view.php	/^$this->title = $model->category_id;$/;"	variable	line:9
+CategoriesController	/Users/as/Sites/shop/controllers/CategoriesController.php	/^class CategoriesController extends Controller$/;"	class	line:15
+behaviors	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function behaviors()$/;"	function	line:17
+actionIndex	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionIndex()$/;"	function	line:33
+searchModel	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $searchModel = new CategoriesSearch();$/;"	variable	line:35
+dataProvider	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	variable	line:36
+actionView	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionView($categoryId)$/;"	function	line:49
+actionCreate	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionCreate($categoryId = null)$/;"	function	line:61
+categories	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $categories = Categories::find()->all();$/;"	variable	line:63
+model	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $model = new Categories();$/;"	variable	line:64
+actionUpdate	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionUpdate($categoryId)$/;"	function	line:84
+categories	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $categories = Categories::find()->all();$/;"	variable	line:87
+model	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $model = $this->findModel($categoryId);$/;"	variable	line:88
+actionDelete	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionDelete($categoryId)$/;"	function	line:106
+findModel	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    protected function findModel($categoryId)$/;"	function	line:120

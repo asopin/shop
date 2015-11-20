@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,19 +13,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name'), ['prompt' => 'Root'])
+    //textInput() ?>
+
     <?= $form->field($model, 'category_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'parent_category_id')->textInput() ?>
 
-<!-- removed because these fields are handled by behaviors
-    <?= $form->field($model, 'date_added')->textInput() ?>
-
-    <?= $form->field($model, 'date_modified')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
- -->
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

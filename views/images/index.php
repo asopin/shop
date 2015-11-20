@@ -40,13 +40,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'image_id',
-            'big_image',
             [
-                'format' => 'raw',
-                'value' => function ($model, $key, $index, $column) {
-                    /** @var $model app\models\Images */
-                    return Html::img($model->getUrl());
-                }
+                'attribute' => 'big_image',
+                'format' => 'html',
+                'label' => 'Big Image',
+                'value' => function($model) {
+                    // TODO: find out what path should be written in and read from DB
+
+                    // debug
+                    Yii::trace($model->getUrl());
+
+                    return Html::img($model->big_image, ['width' => '60px']);
+                },
+
+                // 'value' => function ($model, $key, $index, $column) {
+                //     /** @var $model app\models\Images */
+                //     return Html::img($model->getUrl());
+                // }
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

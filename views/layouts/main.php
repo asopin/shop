@@ -11,8 +11,6 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
-<!-- added by advice here https://github.com/yiisoft/yii2/issues/4032 to fix Images delete Bad Request issue -->
-<?= Html::csrfMetaTags() ?>
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

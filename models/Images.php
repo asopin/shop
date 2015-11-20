@@ -109,7 +109,8 @@ class Images extends \app\models\ShopActiveRecord
      */
     public function getUrl()
     {
-        return Yii::getAlias('@webroot/images/' . $this->getHash() . '.jpg');
+        // return Yii::getAlias('@webroot/images/' . $this->getHash() . '.jpg');
+        return Yii::getAlias($this->getHash() . '.jpg');
     }
 
     public function afterDelete()

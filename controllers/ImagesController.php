@@ -17,9 +17,6 @@ use yii\web\UploadedFile;
  */
 class ImagesController extends Controller
 {
-    // trying to avoid exception 'yii\web\BadRequestHttpException' with message 'Missing required parameters: itemId' on delete
-    // public $enableCsrfValidation = false;
-
     public function behaviors()
     {
         return [
@@ -52,18 +49,18 @@ class ImagesController extends Controller
         if (Yii::$app->request->isPost) {
             $form->files = UploadedFile::getInstances($form, 'files');
 
-            // debug Yii::trace($form);
-
             if ($form->files && $form->validate()) {
                 foreach ($form->files as $file) {
                     $images = new Images();
                     $images->item_id = $itemId;
 
-                    $images->big_image = $images->getPath();
-
-                    // debug Yii::trace($images);
+                    if ($images->save()) {
+                        // writes file name to images table
+                        $images->big_image = $images->getUrl();
+                    }
 
                     if ($images->save()) {
+                        // saves file to folder
                         $file->saveAs($images->getPath());
                     }
                 }
@@ -134,20 +131,9 @@ class ImagesController extends Controller
      */
     public function actionDelete($id)
     {
-        // debug
-        Yii::trace($id);
-
         $image = $this->findModel($id);
-        // debug
-        Yii::trace($image);
-
         $itemId = $image->item_id;
-        // debug
-        Yii::trace($itemId);
-
         $image->delete();
-        // debug
-        Yii::trace($itemId);
 
         return $this->redirect(['index', 'itemId' => $itemId]);
     }

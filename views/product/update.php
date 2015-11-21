@@ -9,7 +9,7 @@ $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Product',
 ]) . ' ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Products'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->item_id]];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'itemId' => $model->item_id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="product-update">

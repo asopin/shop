@@ -44,13 +44,13 @@ class ProductController extends Controller
 
     /**
      * Displays a single Product model.
-     * @param integer $id
+     * @param integer $itemId
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($itemId)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($itemId),
         ]);
     }
 
@@ -65,7 +65,7 @@ class ProductController extends Controller
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->item_id]);
+            return $this->redirect(['view', 'itemId' => $model->item_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -77,16 +77,16 @@ class ProductController extends Controller
     /**
      * Updates an existing Product model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $itemId
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($itemId)
     {
         $categories = Categories::find()->all(); // need this for dropDownList in views/product/_form.php
-        $model = $this->findModel($id);
+        $model = $this->findModel($itemId);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->item_id]);
+            return $this->redirect(['view', 'itemId' => $model->item_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -98,12 +98,12 @@ class ProductController extends Controller
     /**
      * Deletes an existing Product model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $itemId
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($itemId)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($itemId)->delete();
 
         return $this->redirect(['index']);
     }
@@ -111,13 +111,13 @@ class ProductController extends Controller
     /**
      * Finds the Product model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer $itemId
      * @return Product the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($itemId)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Product::findOne($itemId)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

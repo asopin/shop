@@ -156,20 +156,22 @@ title	/Users/as/Sites/shop/views/images/index.php	/^\/\/ $this->title = Yii::t('
 title	/Users/as/Sites/shop/views/images/index.php	/^$this->title = $searchModel->item_id ? "Product #$searchModel->item_id images" : 'Images';$/;"	variable	line:15
 form	/Users/as/Sites/shop/views/images/index.php	/^        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart\/form-data']]) ?>$/;"	variable	line:30
 title	/Users/as/Sites/shop/views/product/create.php	/^$this->title = Yii::t('app', 'Create Product');$/;"	variable	line:9
-title	/Users/as/Sites/shop/views/product/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
+activeValues	/Users/as/Sites/shop/views/product/_form.php	/^$activeValues = [1 => 'Yes', '0' => 'No'];$/;"	variable	line:11
+form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:16
 ProductController	/Users/as/Sites/shop/controllers/ProductController.php	/^class ProductController extends Controller$/;"	class	line:16
 behaviors	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function behaviors()$/;"	function	line:18
 actionIndex	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionIndex()$/;"	function	line:34
 searchModel	/Users/as/Sites/shop/controllers/ProductController.php	/^        $searchModel = new ProductSearch();$/;"	variable	line:36
 dataProvider	/Users/as/Sites/shop/controllers/ProductController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	variable	line:37
-actionView	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionView($id)$/;"	function	line:50
+actionView	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionView($itemId)$/;"	function	line:50
 actionCreate	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionCreate()$/;"	function	line:62
 categories	/Users/as/Sites/shop/controllers/ProductController.php	/^        $categories = Categories::find()->all(); \/\/ need this for dropDownList in views\/product\/_form.php$/;"	variable	line:64
 model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = new Product();$/;"	variable	line:65
-actionUpdate	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionUpdate($id)$/;"	function	line:83
+actionUpdate	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionUpdate($itemId)$/;"	function	line:83
 categories	/Users/as/Sites/shop/controllers/ProductController.php	/^        $categories = Categories::find()->all(); \/\/ need this for dropDownList in views\/product\/_form.php$/;"	variable	line:85
-model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = $this->findModel($id);$/;"	variable	line:86
-actionDelete	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionDelete($id)$/;"	function	line:104
-findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected function findModel($id)$/;"	function	line:118
-activeValues	/Users/as/Sites/shop/views/product/_form.php	/^$activeValues = [1 => 'Yes', '0' => 'No'];$/;"	variable	line:11
-form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:16
+model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = $this->findModel($itemId);$/;"	variable	line:86
+actionDelete	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionDelete($itemId)$/;"	function	line:104
+findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected function findModel($itemId)$/;"	function	line:118
+title	/Users/as/Sites/shop/views/product/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
+title	/Users/as/Sites/shop/views/product/view.php	/^$this->title = $model->name;$/;"	variable	line:9
+title	/Users/as/Sites/shop/views/product/index.php	/^$this->title = Yii::t('app', 'Products');$/;"	variable	line:12

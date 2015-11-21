@@ -4,17 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-CategoriesController	/Users/as/Sites/shop/controllers/CategoriesController.php	/^class CategoriesController extends Controller$/;"	class	line:15
-behaviors	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function behaviors()$/;"	function	line:17
-actionIndex	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionIndex()$/;"	function	line:33
-searchModel	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $searchModel = new CategoriesSearch();$/;"	variable	line:35
-dataProvider	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	variable	line:36
-actionView	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionView($categoryId)$/;"	function	line:49
-actionCreate	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionCreate($categoryId = null)$/;"	function	line:61
-categories	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $categories = Categories::find()->all();$/;"	variable	line:63
-model	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $model = new Categories();$/;"	variable	line:64
-actionUpdate	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionUpdate($categoryId)$/;"	function	line:84
-categories	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $categories = Categories::find()->all();$/;"	variable	line:87
-model	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $model = $this->findModel($categoryId);$/;"	variable	line:88
-actionDelete	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionDelete($categoryId)$/;"	function	line:106
-findModel	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    protected function findModel($categoryId)$/;"	function	line:120
+title	/Users/as/Sites/shop/views/categories/index.php	/^$this->title = Yii::t('app', 'Categories');$/;"	variable	line:13

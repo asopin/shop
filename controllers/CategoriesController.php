@@ -83,8 +83,7 @@ class CategoriesController extends Controller
      */
     public function actionUpdate($categoryId)
     {
-        // TODO: add dropdown functionality
-        $categories = Categories::find()->all();
+        $categories = Categories::find()->all(); //findAllExceptOne($categoryId);
         $model = $this->findModel($categoryId);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -100,7 +99,7 @@ class CategoriesController extends Controller
     /**
      * Deletes an existing Categories model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $categoryId
      * @return mixed
      */
     public function actionDelete($categoryId)
@@ -113,7 +112,7 @@ class CategoriesController extends Controller
     /**
      * Finds the Categories model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer $categoryId
      * @return Categories the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

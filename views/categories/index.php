@@ -1,5 +1,8 @@
 <?php
 
+// for debug
+// use Yii;
+
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -13,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="categories-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -33,7 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_by',
             'updated_by',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'urlCreator'=>function($action, $model, $key, $index){
+                    return [$action, 'categoryId'=>$model->category_id];
+                },
+                'template' => '{view} {update} {delete}',
+            ],
         ],
     ]); ?>
 

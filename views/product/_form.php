@@ -12,7 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= // TODO: change to dropDownList
+        $form->field($model, 'category_id')->textInput() ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -22,7 +23,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'in_stock')->textInput() ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?= // TODO: change to dropDownList true/false
+        $form->field($model, 'active')->textInput() ?>
 
     <!-- removed because these fields are handled by behaviors
     <?= $form->field($model, 'date_added')->textInput() ?>

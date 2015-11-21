@@ -13,8 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name'), ['prompt' => 'Root'])
-    //textInput() ?>
+    <?= $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name'), ['prompt' => 'Root']) ?>
 
     <?= $form->field($model, 'category_name')->textInput(['maxlength' => true]) ?>
 

@@ -100,4 +100,15 @@ class Categories extends \app\models\ShopActiveRecord
     {
         return $this->hasMany(Categories::className(), ['parent_category_id' => 'category_id']);
     }
+
+    /**
+     * The purpose of this function is to prevent cycle reference on parent_category_id (otherwise possible when updating)
+     *
+     * @param integer $categoryId 
+     * @return \yii\db\ActiveQuery
+     */
+    public function findAllExceptOne($categoryId)
+    {
+        return $this->find()->where(['not', ['category_id' => $categoryId]])->all();
+    }
 }

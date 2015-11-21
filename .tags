@@ -118,8 +118,6 @@ activeId	/Users/as/Sites/shop/controllers/CatalogController.php	/^              
 getCategoryIds	/Users/as/Sites/shop/controllers/CatalogController.php	/^    private function getCategoryIds($categories, $categoryId, &$categoryIds = [])$/;"	function	line:90
 title	/Users/as/Sites/shop/views/catalog/list.php	/^$title = $category === null ? 'Welcome!' : $category->category_name;$/;"	variable	line:7
 title	/Users/as/Sites/shop/views/catalog/list.php	/^$this->title = Html::encode($title);$/;"	variable	line:8
-params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
-config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
 images	/Users/as/Sites/shop/views/catalog/_product.php	/^        $images = $model->images;$/;"	variable	line:9
 title	/Users/as/Sites/shop/views/categories/create.php	/^$this->title = Yii::t('app', 'Create Categories');$/;"	variable	line:10
 title	/Users/as/Sites/shop/views/categories/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
@@ -150,6 +148,27 @@ categories	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $
 model	/Users/as/Sites/shop/controllers/CategoriesController.php	/^        $model = $this->findModel($categoryId);$/;"	variable	line:87
 actionDelete	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    public function actionDelete($categoryId)$/;"	function	line:105
 findModel	/Users/as/Sites/shop/controllers/CategoriesController.php	/^    protected function findModel($categoryId)$/;"	function	line:119
-form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:13
 form	/Users/as/Sites/shop/views/categories/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14
 title	/Users/as/Sites/shop/views/categories/index.php	/^$this->title = Yii::t('app', 'Categories');$/;"	variable	line:13
+params	/Users/as/Sites/shop/config/web.php	/^$params = require(__DIR__ . '\/params.php');$/;"	variable	line:3
+config	/Users/as/Sites/shop/config/web.php	/^$config = [$/;"	variable	line:5
+title	/Users/as/Sites/shop/views/images/index.php	/^\/\/ $this->title = Yii::t('app', 'Images');$/;"	variable	line:13
+title	/Users/as/Sites/shop/views/images/index.php	/^$this->title = $searchModel->item_id ? "Product #$searchModel->item_id images" : 'Images';$/;"	variable	line:15
+form	/Users/as/Sites/shop/views/images/index.php	/^        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart\/form-data']]) ?>$/;"	variable	line:30
+title	/Users/as/Sites/shop/views/product/create.php	/^$this->title = Yii::t('app', 'Create Product');$/;"	variable	line:9
+title	/Users/as/Sites/shop/views/product/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
+ProductController	/Users/as/Sites/shop/controllers/ProductController.php	/^class ProductController extends Controller$/;"	class	line:16
+behaviors	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function behaviors()$/;"	function	line:18
+actionIndex	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionIndex()$/;"	function	line:34
+searchModel	/Users/as/Sites/shop/controllers/ProductController.php	/^        $searchModel = new ProductSearch();$/;"	variable	line:36
+dataProvider	/Users/as/Sites/shop/controllers/ProductController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	variable	line:37
+actionView	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionView($id)$/;"	function	line:50
+actionCreate	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionCreate()$/;"	function	line:62
+categories	/Users/as/Sites/shop/controllers/ProductController.php	/^        $categories = Categories::find()->all(); \/\/ need this for dropDownList in views\/product\/_form.php$/;"	variable	line:64
+model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = new Product();$/;"	variable	line:65
+actionUpdate	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionUpdate($id)$/;"	function	line:83
+categories	/Users/as/Sites/shop/controllers/ProductController.php	/^        $categories = Categories::find()->all(); \/\/ need this for dropDownList in views\/product\/_form.php$/;"	variable	line:85
+model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = $this->findModel($id);$/;"	variable	line:86
+actionDelete	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionDelete($id)$/;"	function	line:104
+findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected function findModel($id)$/;"	function	line:118
+form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14

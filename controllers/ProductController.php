@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
+use app\models\Categories;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -60,6 +61,7 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
+        $categories = Categories::find()->all(); // need this for dropDownList in views/product/_form.php
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -67,6 +69,7 @@ class ProductController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categories' => $categories,
             ]);
         }
     }
@@ -79,6 +82,7 @@ class ProductController extends Controller
      */
     public function actionUpdate($id)
     {
+        $categories = Categories::find()->all(); // need this for dropDownList in views/product/_form.php
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -86,6 +90,7 @@ class ProductController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => $categories,
             ]);
         }
     }

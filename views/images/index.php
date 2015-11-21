@@ -45,11 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'label' => 'Big Image',
                 'value' => function($model) {
-                    // TODO: find out what path should be written in and read from DB
-
-                    // debug
-                    Yii::trace($model->getUrl());
-
                     return Html::img($model->big_image, ['width' => '60px']);
                 },
 

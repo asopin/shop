@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -13,7 +14,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= // TODO: change to dropDownList
-        $form->field($model, 'category_id')->textInput() ?>
+        $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name'), ['prompt' => 'Root']) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

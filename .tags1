@@ -4,4 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-title	/Users/as/Sites/shop/views/categories/index.php	/^$this->title = Yii::t('app', 'Categories');$/;"	variable	line:13
+form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14

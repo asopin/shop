@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'urlCreator'=>function($action, $model, $key, $index){
-                    return [$action, 'categoryId'=>$model->category_id];
+                'urlCreator' => function($action, $model, $key, $index){
+                    return [$action, 'categoryId' => $model->category_id];
                 },
                 'template' => '{view} {update} {delete}',
             ],

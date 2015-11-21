@@ -4,4 +4,5 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14
+activeValues	/Users/as/Sites/shop/views/product/_form.php	/^$activeValues = [1 => 'Yes', '0' => 'No'];$/;"	variable	line:11
+form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:16

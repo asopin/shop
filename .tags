@@ -171,4 +171,5 @@ categories	/Users/as/Sites/shop/controllers/ProductController.php	/^        $cat
 model	/Users/as/Sites/shop/controllers/ProductController.php	/^        $model = $this->findModel($id);$/;"	variable	line:86
 actionDelete	/Users/as/Sites/shop/controllers/ProductController.php	/^    public function actionDelete($id)$/;"	function	line:104
 findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected function findModel($id)$/;"	function	line:118
-form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:14
+activeValues	/Users/as/Sites/shop/views/product/_form.php	/^$activeValues = [1 => 'Yes', '0' => 'No'];$/;"	variable	line:11
+form	/Users/as/Sites/shop/views/product/_form.php	/^    <?php $form = ActiveForm::begin(); ?>$/;"	variable	line:16

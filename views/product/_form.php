@@ -7,14 +7,18 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 /* @var $form yii\widgets\ActiveForm */
+
+$activeValues = [1 => 'Yes', '0' => 'No'];
 ?>
 
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= // TODO: change to dropDownList
-        $form->field($model, 'category_id')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name'), ['prompt' => 'Root']) ?>
+    <?=
+        $form->field($model, 'category_id')->dropDownList(
+            ArrayHelper::map($categories, 'category_id', 'category_name'))
+    ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -24,18 +28,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'in_stock')->textInput() ?>
 
-    <?= // TODO: change to dropDownList true/false
-        $form->field($model, 'active')->textInput() ?>
-
-    <!-- removed because these fields are handled by behaviors
-    <?= $form->field($model, 'date_added')->textInput() ?>
-
-    <?= $form->field($model, 'date_modified')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
-
-    <?= $form->field($model, 'updated_by')->textInput() ?>
-    -->
+    <?= $form->field($model, 'active')->dropDownList($activeValues) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

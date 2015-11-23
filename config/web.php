@@ -54,6 +54,10 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        // uncomment if want to use ShoopingCart plugin
+        // 'cart' => [
+        //     'class' => 'yz\shoppingcart\ShoppingCart',
+        // ],
     ],
     'defaultRoute' => 'catalog/list',
     'modules' => [

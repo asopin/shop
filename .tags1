@@ -4,4 +4,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-title	/Users/as/Sites/shop/views/product/index.php	/^$this->title = Yii::t('app', 'Products');$/;"	variable	line:12
+for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
+Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
+tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
+behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
+rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:56
+attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:71
+getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:86
+getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:94
+put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:104
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:104
+user_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->user_id = $userId;$/;"	variable	line:105
+item_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->item_id = $itemId;$/;"	variable	line:106
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^        $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:107

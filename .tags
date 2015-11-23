@@ -175,3 +175,32 @@ findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected
 title	/Users/as/Sites/shop/views/product/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
 title	/Users/as/Sites/shop/views/product/view.php	/^$this->title = $model->name;$/;"	variable	line:9
 title	/Users/as/Sites/shop/views/product/index.php	/^$this->title = Yii::t('app', 'Products');$/;"	variable	line:12
+BasketsController	/Users/as/Sites/shop/controllers/BasketsController.php	/^class BasketsController extends Controller$/;"	class	line:17
+behaviors	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function behaviors()$/;"	function	line:19
+actionIndex	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionIndex()$/;"	function	line:35
+searchModel	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $searchModel = new BasketsSearch();$/;"	variable	line:37
+dataProvider	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);$/;"	variable	line:38
+actionView	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionView($id)$/;"	function	line:51
+actionCreate	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionCreate()$/;"	function	line:63
+model	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $model = new Baskets();$/;"	variable	line:65
+actionUpdate	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionUpdate($id)$/;"	function	line:82
+model	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $model = $this->findModel($id);$/;"	variable	line:84
+actionDelete	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionDelete($id)$/;"	function	line:101
+findModel	/Users/as/Sites/shop/controllers/BasketsController.php	/^    protected function findModel($id)$/;"	function	line:115
+actionAdd	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionAdd($itemId)$/;"	function	line:129
+product	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $product = Product::findOne($itemId);$/;"	variable	line:131
+Baskets	/Users/as/Sites/shop/controllers/BasketsController.php	/^            $model = new Baskets(); \/\/ TODO: FOR REFACTORING: change class Baskets to Basket. All these objects describe a single entity on a diagram$/;"	class	line:138
+model	/Users/as/Sites/shop/controllers/BasketsController.php	/^            $model = new Baskets(); \/\/ TODO: FOR REFACTORING: change class Baskets to Basket. All these objects describe a single entity on a diagram$/;"	variable	line:138
+for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
+Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
+tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
+behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
+rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:56
+attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:71
+getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:86
+getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:94
+put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:104
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:104
+user_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->user_id = $userId;$/;"	variable	line:105
+item_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->item_id = $itemId;$/;"	variable	line:106
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^        $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:107

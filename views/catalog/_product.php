@@ -21,7 +21,7 @@ use yii\helpers\Markdown;
     <div class="col-xs-4 price">
         <div class="row">
             <div class="col-xs-12">$<?= $model->price ?></div>
-            <div class="col-xs-12"><?= Html::a('Add to cart', ['cart/add', 'id' => $model->item_id], ['class' => 'btn btn-success'])?></div>
+            <div class="col-xs-12"><?= Html::a('Add to basket', ['baskets/add', 'itemId' => $model->item_id], ['class' => 'btn btn-success'])?></div>
         </div>
     </div>
 </div>

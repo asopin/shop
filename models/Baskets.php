@@ -40,12 +40,9 @@ class Baskets extends yii\db\ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => ['date_added', 'date_modified'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['date_added'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['date_modified'],
                 ],
-                // TBU value because of the following:
-                // http://stackoverflow.com/questions/30397789/use-db-expression-or-php-datetime-as-timestamp
-                // One drawback with using DB Expressin in yii2 is that the model attribute is not updated after $model->save(). It stillcontains "new Expression('NOW()')". To get the actual value the model need to be loaded from database with "$model->refresh()". By using PHP datetime the final value is present right away. (Found that out when making a Rest API with the default Rest classes. After creating something the value echoed back still was an Expression and not a value.) – karpy47 Nov 8 at 17:19
-                'value' => new Expression('NOW()'), // using new Expression('NOW()') instead of just time() because it is DB time format independent
+                'value' => new Expression('NOW()'),
             ],
         ];
     }
@@ -102,8 +99,33 @@ class Baskets extends yii\db\ActiveRecord
      * @param integer $userId
      */
     public function put($userId, $itemId, $quantity = 1) {
-        $this->user_id = $userId;
-        $this->item_id = $itemId;
-        $this->quantity = $quantity; // TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.
+
+        // TODO: if exists then increment quantity. Otherwise add a record
+
+        if ($existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId])) {
+            $existingItemForThisUser->quantity = $existingItemForThisUser->quantity + $quantity;
+
+            // debug
+            var_dump($existingItemForThisUser);
+
+            return $existingItemForThisUser;
+        } else {
+            $this->user_id = $userId;
+            $this->item_id = $itemId;
+            $this->quantity = $quantity; // TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.
+
+            return $this;
+        }
+
+
+    }
+
+    /**
+     * Gets positions of current user
+     * @return [type] [description]
+     */
+    public function getPositions()
+    {
+
     }
 }

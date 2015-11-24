@@ -137,16 +137,32 @@ class BasketsController extends Controller
             // add item to the baskets table
             $model = new Baskets(); // TODO: FOR REFACTORING: change class Baskets to Basket. All these objects describe a single entity on a diagram
 
-            $model->put(Yii::$app->user->identity->id, $itemId);
+            $model = $model->put(Yii::$app->user->identity->id, $itemId);
             if($model->save())
             {
                 $this->goBack();
-            } else {
-            // debug
-                var_dump($model->errors);
             }
-
-
         }
+    }
+
+    /**
+     * [actionList description]
+     * @return [type] [description]
+     */
+    public function actionList()
+    {
+
+        // render current user's basket
+        /* @var $cart ShoppingCart */
+        $basket = new Baskets();
+
+        $products = $basket->getPositions();
+        $total = $cart->getCost();
+
+        return $this->render('list', [
+           'products' => $products,
+           'total' => $total,
+        ]);
+
     }
 }

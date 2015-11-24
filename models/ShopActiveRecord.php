@@ -28,7 +28,7 @@ class ShopActiveRecord extends yii\db\ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => ['date_added', 'date_modified'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['date_added'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['date_modified'],
                 ],
                 // TBU value because of the following:
                 // http://stackoverflow.com/questions/30397789/use-db-expression-or-php-datetime-as-timestamp

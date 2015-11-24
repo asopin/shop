@@ -4,16 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
-Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
-tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
-behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
-rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:56
-attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:71
-getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:86
-getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:94
-put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:104
-quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:104
-user_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->user_id = $userId;$/;"	variable	line:105
-item_id	/Users/as/Sites/shop/models/Baskets.php	/^        $this->item_id = $itemId;$/;"	variable	line:106
-quantity	/Users/as/Sites/shop/models/Baskets.php	/^        $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:107
+for	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * ShopActiveRecord will be a parent class for all other models of shop DB.$/;"	class	line:15
+to	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * It extends the ActiveRecord class to provide common timestamp and blameable behaviors.$/;"	class	line:17
+ShopActiveRecord	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^class ShopActiveRecord extends yii\\db\\ActiveRecord$/;"	class	line:22
+behaviors	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^    public function behaviors()$/;"	function	line:24

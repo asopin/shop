@@ -4,4 +4,27 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-quantity	/Users/as/Sites/shop/views/baskets/list.php	/^            <?= $quantity = $product->getQuantity() ?>$/;"	variable	line:36
+for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
+Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
+tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
+behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
+rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:53
+attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:68
+getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:83
+getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:91
+put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:101
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:101
+user_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->user_id = $userId;$/;"	variable	line:113
+item_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->item_id = $itemId;$/;"	variable	line:114
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^            $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:115
+getPositions	/Users/as/Sites/shop/models/Baskets.php	/^    public function getPositions($userId)$/;"	function	line:126
+to	/Users/as/Sites/shop/models/Baskets.php	/^        \/\/ Here I need to return Baskets, but in Baskets I need to give an interface to both necessary Baskets fields and Product fields$/;"	interface	line:128
+positions	/Users/as/Sites/shop/models/Baskets.php	/^        $positions = $this->findAll(['user_id' => $userId]);$/;"	variable	line:139
+getCost	/Users/as/Sites/shop/models/Baskets.php	/^    public function getCost()$/;"	function	line:150
+getTotalCost	/Users/as/Sites/shop/models/Baskets.php	/^    public function getTotalCost($userId)$/;"	function	line:157
+products	/Users/as/Sites/shop/models/Baskets.php	/^        $products = $/;"	variable	line:159
+getProductName	/Users/as/Sites/shop/models/Baskets.php	/^    public function getProductName()$/;"	function	line:166
+product	/Users/as/Sites/shop/models/Baskets.php	/^        $product = Product::findOne($this->item_id);$/;"	variable	line:168
+getProductPrice	/Users/as/Sites/shop/models/Baskets.php	/^    public function getProductPrice()$/;"	function	line:178
+product	/Users/as/Sites/shop/models/Baskets.php	/^        $product = Product::findOne($this->item_id);$/;"	variable	line:180
+getQuantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function getQuantity()$/;"	function	line:190

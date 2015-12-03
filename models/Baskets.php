@@ -143,7 +143,7 @@ class Baskets extends yii\db\ActiveRecord
     }
 
     /**
-     * [getCost description]
+     * Returns total cost of item
      * @param  Integer $userId [description]
      * @return Float         Total cost of all items in given user's basket
      */
@@ -151,6 +151,23 @@ class Baskets extends yii\db\ActiveRecord
     {
         // TODO: return total cost of item
         return $this->getProductPrice() * $this->getQuantity();
+    }
+
+    /**
+     * Returns total cost of basket for the user
+     * @param  Integer $userId [description]
+     * @return Float         total cost of basket for the user
+     */
+    public function getTotalCost($userId)
+    {
+        $products = $this->getPositions($userId);
+        $totalCost = 0;
+
+        foreach ($products as $product) {
+            $totalCost += $product->getCost();
+        }
+
+        return $totalCost;
     }
 
     /**

@@ -168,7 +168,7 @@ class BasketsController extends Controller
         $basket = new Baskets();
 
         $products = $basket->getPositions($userId);
-        $total = 0; // $basket->getCost($userId);
+        $total = $basket->getTotalCost($userId);
 
         // debug var_dump($products);
 

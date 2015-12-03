@@ -175,6 +175,45 @@ findModel	/Users/as/Sites/shop/controllers/ProductController.php	/^    protected
 title	/Users/as/Sites/shop/views/product/update.php	/^$this->title = Yii::t('app', 'Update {modelClass}: ', [$/;"	variable	line:8
 title	/Users/as/Sites/shop/views/product/view.php	/^$this->title = $model->name;$/;"	variable	line:9
 title	/Users/as/Sites/shop/views/product/index.php	/^$this->title = Yii::t('app', 'Products');$/;"	variable	line:12
+for	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * ShopActiveRecord will be a parent class for all other models of shop DB.$/;"	class	line:15
+to	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * It extends the ActiveRecord class to provide common timestamp and blameable behaviors.$/;"	class	line:17
+ShopActiveRecord	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^class ShopActiveRecord extends yii\\db\\ActiveRecord$/;"	class	line:22
+behaviors	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^    public function behaviors()$/;"	function	line:24
+for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
+Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
+tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
+behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
+rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:53
+attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:68
+getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:83
+getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:91
+put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:101
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:101
+user_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->user_id = $userId;$/;"	variable	line:113
+item_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->item_id = $itemId;$/;"	variable	line:114
+quantity	/Users/as/Sites/shop/models/Baskets.php	/^            $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:115
+getPositions	/Users/as/Sites/shop/models/Baskets.php	/^    public function getPositions($userId)$/;"	function	line:126
+to	/Users/as/Sites/shop/models/Baskets.php	/^        \/\/ Here I need to return Baskets, but in Baskets I need to give an interface to both necessary Baskets fields and Product fields$/;"	interface	line:128
+positions	/Users/as/Sites/shop/models/Baskets.php	/^        $positions = $this->findAll(['user_id' => $userId]);$/;"	variable	line:139
+getCost	/Users/as/Sites/shop/models/Baskets.php	/^    public function getCost()$/;"	function	line:150
+getProductName	/Users/as/Sites/shop/models/Baskets.php	/^    public function getProductName()$/;"	function	line:160
+product	/Users/as/Sites/shop/models/Baskets.php	/^        $product = Product::findOne($this->item_id);$/;"	variable	line:162
+getProductPrice	/Users/as/Sites/shop/models/Baskets.php	/^    public function getProductPrice()$/;"	function	line:172
+product	/Users/as/Sites/shop/models/Baskets.php	/^        $product = Product::findOne($this->item_id);$/;"	variable	line:174
+getQuantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function getQuantity()$/;"	function	line:184
+for	/Users/as/Sites/shop/models/Product.php	/^ * This is the model class for table "product".$/;"	class	line:8
+Product	/Users/as/Sites/shop/models/Product.php	/^class Product extends \\app\\models\\ShopActiveRecord$/;"	class	line:29
+tableName	/Users/as/Sites/shop/models/Product.php	/^    public static function tableName()$/;"	function	line:34
+rules	/Users/as/Sites/shop/models/Product.php	/^    public function rules()$/;"	function	line:42
+attributeLabels	/Users/as/Sites/shop/models/Product.php	/^    public function attributeLabels()$/;"	function	line:59
+getBaskets	/Users/as/Sites/shop/models/Product.php	/^    public function getBaskets()$/;"	function	line:79
+getCreatedBy	/Users/as/Sites/shop/models/Product.php	/^    public function getCreatedBy()$/;"	function	line:87
+getUpdatedBy	/Users/as/Sites/shop/models/Product.php	/^    public function getUpdatedBy()$/;"	function	line:95
+getCategory	/Users/as/Sites/shop/models/Product.php	/^    public function getCategory()$/;"	function	line:103
+getImages	/Users/as/Sites/shop/models/Product.php	/^    public function getImages()$/;"	function	line:111
+getOrders	/Users/as/Sites/shop/models/Product.php	/^    public function getOrders()$/;"	function	line:119
+getName	/Users/as/Sites/shop/models/Product.php	/^    public function getName()$/;"	function	line:127
+getPrice	/Users/as/Sites/shop/models/Product.php	/^    public function getPrice()$/;"	function	line:135
 BasketsController	/Users/as/Sites/shop/controllers/BasketsController.php	/^class BasketsController extends Controller$/;"	class	line:17
 behaviors	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function behaviors()$/;"	function	line:19
 actionIndex	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionIndex()$/;"	function	line:35
@@ -192,25 +231,10 @@ product	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $produc
 Baskets	/Users/as/Sites/shop/controllers/BasketsController.php	/^            $model = new Baskets(); \/\/ TODO: FOR REFACTORING: change class Baskets to Basket. All these objects describe a single entity on a diagram$/;"	class	line:138
 model	/Users/as/Sites/shop/controllers/BasketsController.php	/^            $model = new Baskets(); \/\/ TODO: FOR REFACTORING: change class Baskets to Basket. All these objects describe a single entity on a diagram$/;"	variable	line:138
 model	/Users/as/Sites/shop/controllers/BasketsController.php	/^            $model = $model->put(Yii::$app->user->identity->id, $itemId);$/;"	variable	line:140
-actionList	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionList()$/;"	function	line:152
-basket	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $basket = new Baskets();$/;"	variable	line:157
-products	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $products = $basket->getPositions();$/;"	variable	line:159
-total	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $total = $cart->getCost();$/;"	variable	line:160
-for	/Users/as/Sites/shop/models/Baskets.php	/^ * This is the model class for table "baskets".$/;"	class	line:11
-Baskets	/Users/as/Sites/shop/models/Baskets.php	/^class Baskets extends yii\\db\\ActiveRecord$/;"	class	line:23
-tableName	/Users/as/Sites/shop/models/Baskets.php	/^    public static function tableName()$/;"	function	line:28
-behaviors	/Users/as/Sites/shop/models/Baskets.php	/^    public function behaviors()$/;"	function	line:36
-rules	/Users/as/Sites/shop/models/Baskets.php	/^    public function rules()$/;"	function	line:53
-attributeLabels	/Users/as/Sites/shop/models/Baskets.php	/^    public function attributeLabels()$/;"	function	line:68
-getItem	/Users/as/Sites/shop/models/Baskets.php	/^    public function getItem()$/;"	function	line:83
-getUser	/Users/as/Sites/shop/models/Baskets.php	/^    public function getUser()$/;"	function	line:91
-put	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	function	line:101
-quantity	/Users/as/Sites/shop/models/Baskets.php	/^    public function put($userId, $itemId, $quantity = 1) {$/;"	variable	line:101
-user_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->user_id = $userId;$/;"	variable	line:113
-item_id	/Users/as/Sites/shop/models/Baskets.php	/^            $this->item_id = $itemId;$/;"	variable	line:114
-quantity	/Users/as/Sites/shop/models/Baskets.php	/^            $this->quantity = $quantity; \/\/ TODO: FOR REFACTORING: May be need to change this to be a default value in database. Probably not.$/;"	variable	line:115
-getPositions	/Users/as/Sites/shop/models/Baskets.php	/^    public function getPositions()$/;"	function	line:127
-for	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * ShopActiveRecord will be a parent class for all other models of shop DB.$/;"	class	line:15
-to	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^ * It extends the ActiveRecord class to provide common timestamp and blameable behaviors.$/;"	class	line:17
-ShopActiveRecord	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^class ShopActiveRecord extends yii\\db\\ActiveRecord$/;"	class	line:22
-behaviors	/Users/as/Sites/shop/models/ShopActiveRecord.php	/^    public function behaviors()$/;"	function	line:24
+actionUpdate	/Users/as/Sites/shop/controllers/BasketsController.php	/^    \/\/ public function actionUpdate($itemId)$/;"	function	line:153
+actionList	/Users/as/Sites/shop/controllers/BasketsController.php	/^    public function actionList()$/;"	function	line:162
+userId	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $userId = Yii::$app->user->identity->id;$/;"	variable	line:164
+basket	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $basket = new Baskets();$/;"	variable	line:168
+products	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $products = $basket->getPositions($userId);$/;"	variable	line:170
+total	/Users/as/Sites/shop/controllers/BasketsController.php	/^        $total = 0; \/\/ $basket->getCost($userId);$/;"	variable	line:171
+quantity	/Users/as/Sites/shop/views/baskets/list.php	/^            <?= $quantity = $product->getQuantity() ?>$/;"	variable	line:36

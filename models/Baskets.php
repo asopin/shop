@@ -106,7 +106,7 @@ class Baskets extends yii\db\ActiveRecord
             $existingItemForThisUser->quantity = $existingItemForThisUser->quantity + $quantity;
 
             // debug
-            var_dump($existingItemForThisUser);
+            // var_dump($existingItemForThisUser);
 
             return $existingItemForThisUser;
         } else {
@@ -116,16 +116,74 @@ class Baskets extends yii\db\ActiveRecord
 
             return $this;
         }
-
-
     }
 
     /**
      * Gets positions of current user
-     * @return [type] [description]
+     * @param  Integer $userId
+     * @return app/models/Baskets all Baskets records for given user_id
      */
-    public function getPositions()
+    public function getPositions($userId)
     {
+        // Here I need to return Baskets, but in Baskets I need to give an interface to both necessary Baskets fields and Product fields
+        //
+        // need to output:
+        // product name - separate method
+        // price - separate method
+        // cost considering discount - separate method
+        // quantity - separate method
+        //
+        //
 
+        // get all products for this user
+        $positions = $this->findAll(['user_id' => $userId]);
+
+        // return all products and total for this user's basket
+        return $positions;
     }
+
+    /**
+     * [getCost description]
+     * @param  Integer $userId [description]
+     * @return Float         Total cost of all items in given user's basket
+     */
+    public function getCost()
+    {
+        // TODO: return total cost of item
+        return $this->getProductPrice() * $this->getQuantity();
+    }
+
+    /**
+     * [getProductName description]
+     * @return String [description]
+     */
+    public function getProductName()
+    {
+        $product = Product::findOne($this->item_id);
+        // debug var_dump($product);
+
+        return $product->getName(); // $product->name;
+    }
+
+    /**
+     * [getProductPrice description]
+     * @return Float product price
+     */
+    public function getProductPrice()
+    {
+        $product = Product::findOne($this->item_id);
+        // debug var_dump($product);
+
+        return $product->getPrice();
+    }
+
+    /**
+     * [getQuantity description]
+     * @return Integer baskets' record quantity
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
 }

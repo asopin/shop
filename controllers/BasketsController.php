@@ -145,19 +145,32 @@ class BasketsController extends Controller
         }
     }
 
+    // /**
+    //  * Adds and item to the basket
+    //  * @param  [type] $itemId [description]
+    //  * @return [type]         [description]
+    //  */
+    // public function actionUpdate($itemId)
+    // {
+    //     // TODO: Add code to update (see actionAdd and cart/update for reference). Need this for '-' in list view
+    // }
+
     /**
      * [actionList description]
      * @return [type] [description]
      */
     public function actionList()
     {
+        $userId = Yii::$app->user->identity->id;
 
         // render current user's basket
         /* @var $cart ShoppingCart */
         $basket = new Baskets();
 
-        $products = $basket->getPositions();
-        $total = $cart->getCost();
+        $products = $basket->getPositions($userId);
+        $total = 0; // $basket->getCost($userId);
+
+        // debug var_dump($products);
 
         return $this->render('list', [
            'products' => $products,

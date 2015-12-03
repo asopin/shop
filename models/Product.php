@@ -120,4 +120,20 @@ class Product extends \app\models\ShopActiveRecord
     {
         return $this->hasMany(Orders::className(), ['item_id' => 'item_id']);
     }
+
+    /**
+     * @return String
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * @return Float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
 }

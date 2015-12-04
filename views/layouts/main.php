@@ -38,6 +38,7 @@ AppAsset::register($this);
     // forms the top navigation menu items
     $navItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Basket', 'url' => ['/baskets/list']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];

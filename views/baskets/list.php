@@ -35,14 +35,14 @@ use \yii\helpers\Html;
         <div class="col-xs-2">
             <?= $quantity = $product->getQuantity() ?>
 
-            <?= Html::a('-', ['baskets\update', 'itemId' => $product->getItem(), 'quantity' => $quantity - 1], ['class' => 'btn btn-danger', 'disabled' => ($quantity - 1) < 1]) ?>
-            <?= Html::a('+', ['baskets\update', 'itemId' => $product->getItem(), 'quantity' => $quantity + 1], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('-', ['baskets/update', 'itemId' => $product->getItemId(), 'quantity' => $quantity - 1], ['class' => 'btn btn-danger', 'disabled' => ($quantity - 1) < 1]) ?>
+            <?= Html::a('+', ['baskets/update', 'itemId' => $product->getItemId(), 'quantity' => $quantity + 1], ['class' => 'btn btn-success']) ?>
         </div>
         <div class="col-xs-2">
             $<?= $product->getCost() ?>
         </div>
         <div class="col-xs-2">
-            <?= Html::a('x', ['baskets\remove', 'itemId' => $product->getItem()], ['class' => 'btn btn-danger']) ?>
+            <?= Html::a('x', ['baskets/remove', 'itemId' => $product->getItemId()], ['class' => 'btn btn-danger']) ?>
         </div>
     </div>
     <?php endforeach ?>

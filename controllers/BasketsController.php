@@ -74,25 +74,6 @@ class BasketsController extends Controller
     }
 
     /**
-     * Updates an existing Baskets model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
      * Deletes an existing Baskets model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -145,16 +126,6 @@ class BasketsController extends Controller
         }
     }
 
-    // /**
-    //  * Adds and item to the basket
-    //  * @param  [type] $itemId [description]
-    //  * @return [type]         [description]
-    //  */
-    // public function actionUpdate($itemId)
-    // {
-    //     // TODO: Add code to update (see actionAdd and cart/update for reference). Need this for '-' in list view
-    // }
-
     /**
      * [actionList description]
      * @return [type] [description]
@@ -178,4 +149,39 @@ class BasketsController extends Controller
         ]);
 
     }
+
+    /**
+     * Updates an existing Baskets model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdate($itemId, $quantity)
+    {
+        $product = Product::findOne($itemId);
+        if ($product) {
+            $model = new Baskets();
+
+            $model = $model->updateQuantity(Yii::$app->user->identity->id, $itemId, $quantity);
+            Yii::trace($model->user_id . ' ' . $model->item_id . ' ' . $model->quantity);
+
+            if($model->save()) {
+                $this->redirect(['baskets/list']);
+            }
+        }
+    }
+
+    public function actionRemove($itemId)
+    {
+        $product = Product::findOne($itemId);
+        if ($product) {
+            $model = new Baskets();
+
+            $model = $model->removeItem(Yii::$app->user->identity->id, $itemId);
+            Yii::trace($model);
+
+            $this->redirect(['baskets/list']);
+        }
+    }
+
 }

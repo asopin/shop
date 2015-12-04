@@ -86,6 +86,14 @@ class Baskets extends yii\db\ActiveRecord
     }
 
     /**
+     * @return Integer
+     */
+    public function getItemId()
+    {
+        return $this->item_id;
+    }
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getUser()
@@ -94,19 +102,16 @@ class Baskets extends yii\db\ActiveRecord
     }
 
     /**
-     * Adds one item to the basket
+     * Adds item(s) to the basket
      * @param integer $itemId
      * @param integer $userId
+     * @return app\models\Baskets
      */
     public function put($userId, $itemId, $quantity = 1) {
 
-        // TODO: if exists then increment quantity. Otherwise add a record
-
+        // if exists then increment quantity. Otherwise add a record
         if ($existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId])) {
             $existingItemForThisUser->quantity = $existingItemForThisUser->quantity + $quantity;
-
-            // debug
-            // var_dump($existingItemForThisUser);
 
             return $existingItemForThisUser;
         } else {
@@ -118,6 +123,32 @@ class Baskets extends yii\db\ActiveRecord
         }
     }
 
+    public function removeItem($userId, $itemId)
+    {
+        if ($existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId])) {
+            $existingItemForThisUser->delete();
+
+            Yii::trace($existingItemForThisUser);
+
+            return $existingItemForThisUser;
+        }
+    }
+
+    /**
+     * Updates the quantity of an item for given user
+     * @param  Integer $userId   [description]
+     * @param  Integer $itemId   [description]
+     * @param  Integer $quantity [description]
+     * @return app\models\Baskets           [description]
+     */
+    public function updateQuantity($userId, $itemId, $quantity)
+    {
+        $existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId]);
+        $existingItemForThisUser->quantity = $quantity;
+
+        return $existingItemForThisUser;
+    }
+
     /**
      * Gets positions of current user
      * @param  Integer $userId
@@ -125,20 +156,8 @@ class Baskets extends yii\db\ActiveRecord
      */
     public function getPositions($userId)
     {
-        // Here I need to return Baskets, but in Baskets I need to give an interface to both necessary Baskets fields and Product fields
-        //
-        // need to output:
-        // product name - separate method
-        // price - separate method
-        // cost considering discount - separate method
-        // quantity - separate method
-        //
-        //
-
-        // get all products for this user
         $positions = $this->findAll(['user_id' => $userId]);
 
-        // return all products and total for this user's basket
         return $positions;
     }
 

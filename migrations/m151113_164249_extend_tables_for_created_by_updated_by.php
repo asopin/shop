@@ -7,6 +7,7 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
 {
     public function up()
     {
+
         // adds two fields to table to track who created or updated an item. For internal use
         // $this->addColumn('{{%product}}', 'created_by', Schema::TYPE_INTEGER . ' NOT NULL');
         // $this->addForeignKey('product_created_byFK', '{{%product}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
@@ -32,7 +33,6 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
         $this->addForeignKey('order_statuses_created_byFK', '{{%order_statuses}}', 'created_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
         $this->addColumn('{{%order_statuses}}', 'updated_by', Schema::TYPE_INTEGER . ' NOT NULL');
         $this->addForeignKey('order_statuses_updated_byFK', '{{%order_statuses}}', 'updated_by', '{{%user}}', 'id', 'CASCADE', 'CASCADE');
-
     }
 
     public function down()
@@ -59,7 +59,6 @@ class m151113_164249_extend_tables_for_created_by_updated_by extends Migration
         $this->dropColumn('{{%order_statuses}}', 'created_by');
         $this->dropForeignKey('order_statuses_updated_byFK', '{{%order_statuses}}');
         $this->dropColumn('{{%order_statuses}}', 'updated_by');
-
     }
 
     /*

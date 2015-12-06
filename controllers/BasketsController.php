@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Baskets;
 use app\models\BasketsSearch;
+use app\models\Orders;
 use app\models\Product;
 use yii\base\Model;
 use yii\web\Controller;
@@ -141,13 +142,52 @@ class BasketsController extends Controller
         $products = $basket->getPositions($userId);
         $total = $basket->getTotalCost($userId);
 
-        // debug var_dump($products);
-
         return $this->render('list', [
            'products' => $products,
            'total' => $total,
         ]);
+    }
 
+    public function actionOrder()
+    {
+        // TODO: implement Orders and OrderItem properly
+        //
+        // DONE: add table OrderItem and alter Orders table to move item-related data to separate table with relation one to many by order_id
+
+        $userId = Yii::$app->user->identity->id;
+
+        $order = new Orders();
+        $basket = new Baskets();
+
+        $products = $basket->getPositions($userId);
+        $total = $basket->getTotalCost($userId);
+
+        if ($order->load(Yii::$app->request->post()) && $order->validate()) {
+            $transaction = $order->getDb()->beginTransaction();
+            $order->save(false);
+
+            foreach($products as $product) {
+                $orderItem = new OrderItem();
+
+            }
+        }
+    }
+
+    /**
+     * Removes item from basket
+     * @param  Integer $itemId [description]
+     */
+    public function actionRemove($itemId)
+    {
+        $product = Product::findOne($itemId);
+        if ($product) {
+            $model = new Baskets();
+
+            $model = $model->removeItem(Yii::$app->user->identity->id, $itemId);
+            Yii::trace($model);
+
+            $this->redirect(['baskets/list']);
+        }
     }
 
     /**
@@ -163,25 +203,10 @@ class BasketsController extends Controller
             $model = new Baskets();
 
             $model = $model->updateQuantity(Yii::$app->user->identity->id, $itemId, $quantity);
-            Yii::trace($model->user_id . ' ' . $model->item_id . ' ' . $model->quantity);
 
             if($model->save()) {
                 $this->redirect(['baskets/list']);
             }
         }
     }
-
-    public function actionRemove($itemId)
-    {
-        $product = Product::findOne($itemId);
-        if ($product) {
-            $model = new Baskets();
-
-            $model = $model->removeItem(Yii::$app->user->identity->id, $itemId);
-            Yii::trace($model);
-
-            $this->redirect(['baskets/list']);
-        }
-    }
-
 }

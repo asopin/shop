@@ -6,6 +6,7 @@ use Yii;
 use app\models\Baskets;
 use app\models\BasketsSearch;
 use app\models\Orders;
+use app\models\OrderItem;
 use app\models\Product;
 use yii\base\Model;
 use yii\web\Controller;
@@ -150,10 +151,6 @@ class BasketsController extends Controller
 
     public function actionOrder()
     {
-        // TODO: implement Orders and OrderItem properly
-        //
-        // DONE: add table OrderItem and alter Orders table to move item-related data to separate table with relation one to many by order_id
-
         $userId = Yii::$app->user->identity->id;
 
         $order = new Orders();
@@ -162,15 +159,54 @@ class BasketsController extends Controller
         $products = $basket->getPositions($userId);
         $total = $basket->getTotalCost($userId);
 
-        if ($order->load(Yii::$app->request->post()) && $order->validate()) {
+        if ($loadTest = $order->load($postTest = Yii::$app->request->post()) && $validateTest = $order->validate()) {
+
+            $order->user_id = $userId;
+
+            // STUB:
+            $order->delivery_method_id = 2;
+            $order->order_status_id = 1;
+
             $transaction = $order->getDb()->beginTransaction();
             $order->save(false);
 
             foreach($products as $product) {
                 $orderItem = new OrderItem();
+                $orderItem->order_id = $order->order_id;
+                // I don't have t title column in order_item table
+                // $orderItem->title = $title
 
+                $orderItem->item_id = $product->getItemId();
+                $orderItem->price = $product->getProductPrice();
+                $orderItem->quantity = $product->getQuantity();
+
+
+                if (!$orderItem->save(false)) {
+                    $transaction->rollBack();
+                    Yii::$app->session->addFlash('error', 'Cannot place your order. Please contact us.');
+                    return $this->redirect('catalog/list');
+                }
             }
+
+            $transaction->commit();
+
+            // TODO: add removal of the user's basket
+            Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
+            $order->sendEmail();
+
+            return $this->redirect('catalog/list');
         }
+
+        Yii::trace($order->getErrors());
+        Yii::trace($loadTest); // . ' ' . $validateTest);
+        Yii::trace($postTest); //
+        // Yii::trace($validateTest);
+
+        return $this->render('order', [
+            'order' => $order,
+            'products' => $products,
+            'total' => $total,
+        ]);
     }
 
     /**

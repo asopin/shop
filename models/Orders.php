@@ -3,26 +3,30 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
+use yii\behaviors\TimestampBehavior;
+
 
 /**
  * This is the model class for table "orders".
  *
  * @property integer $order_id
  * @property integer $user_id
- * @property integer $item_id
- * @property integer $quantity
- * @property string $price
  * @property integer $delivery_method_id
  * @property integer $order_status_id
  * @property string $date_added
  * @property string $date_modified
+ * @property string $phone
+ * @property string $email
+ * @property string $notes
  *
+ * @property OrderItem[] $orderItems
  * @property DeliveryMethods $deliveryMethod
  * @property OrderStatuses $orderStatus
- * @property Product $item
  * @property User $user
  */
-class Orders extends \app\models\ShopActiveRecord
+class Orders extends yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,13 +39,31 @@ class Orders extends \app\models\ShopActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['date_added', 'date_modified'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['date_modified'],
+                ],
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            [['user_id', 'item_id', 'quantity', 'price', 'delivery_method_id', 'order_status_id', 'date_added', 'date_modified'], 'required'],
-            [['user_id', 'item_id', 'quantity', 'delivery_method_id', 'order_status_id'], 'integer'],
-            [['price'], 'number'],
-            [['date_added', 'date_modified'], 'safe']
+            // [['user_id', 'delivery_method_id', 'order_status_id', 'date_added', 'date_modified', 'phone', 'email'], 'required'],
+            [['phone' , 'email'], 'required'],
+            [['user_id', 'delivery_method_id', 'order_status_id'], 'integer'],
+            [['date_added', 'date_modified'], 'safe'],
+            [['phone', 'email', 'notes'], 'string', 'max' => 255]
         ];
     }
 
@@ -53,14 +75,22 @@ class Orders extends \app\models\ShopActiveRecord
         return [
             'order_id' => Yii::t('app', 'Order ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'item_id' => Yii::t('app', 'Item ID'),
-            'quantity' => Yii::t('app', 'Quantity'),
-            'price' => Yii::t('app', 'Price'),
             'delivery_method_id' => Yii::t('app', 'Delivery Method ID'),
             'order_status_id' => Yii::t('app', 'Order Status ID'),
             'date_added' => Yii::t('app', 'Date Added'),
             'date_modified' => Yii::t('app', 'Date Modified'),
+            'phone' => Yii::t('app', 'Phone'),
+            'email' => Yii::t('app', 'Email'),
+            'notes' => Yii::t('app', 'Notes'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOrderItems()
+    {
+        return $this->hasMany(OrderItem::className(), ['order_id' => 'order_id']);
     }
 
     /**
@@ -77,14 +107,6 @@ class Orders extends \app\models\ShopActiveRecord
     public function getOrderStatus()
     {
         return $this->hasOne(OrderStatuses::className(), ['order_status_id' => 'order_status_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getItem()
-    {
-        return $this->hasOne(Product::className(), ['item_id' => 'item_id']);
     }
 
     /**

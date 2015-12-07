@@ -1,0 +1,165 @@
+BUG-1:
+Exception
+Integrity constraint violation – yii\db\IntegrityException
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'created_by' cannot be null
+The SQL being executed was: INSERT INTO `product` (`category_id`, `name`, `description`, `price`, `in_stock`, `active`, `date_added`, `date_modified`, `created_by`, `updated_by`) VALUES (7, 'djdfgi', 'ea8rusedfe', '13.14', 1, 1, NOW(), NOW(), NULL, NULL)
+
+Error Info: Array
+(
+    [0] => 23000
+    [1] => 1048
+    [2] => Column 'created_by' cannot be null
+)
+
+↵
+Caused by: PDOException
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'created_by' cannot be null
+
+in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/Command.php at line 781
+
+    1. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/Schema.php at line 628
+    619620621622623624625626627628629630631632633634635636637
+
+
+            $exceptionClass = '\yii\db\Exception';
+            foreach ($this->exceptionMap as $error => $class) {
+                if (strpos($e->getMessage(), $error) !== false) {
+                    $exceptionClass = $class;
+                }
+            }
+            $message = $e->getMessage()  . "\nThe SQL being executed was: $rawSql";
+            $errorInfo = $e instanceof \PDOException ? $e->errorInfo : null;
+            return new $exceptionClass($message, $errorInfo, (int) $e->getCode(), $e);
+        }
+
+        /**
+         * Returns a value indicating whether a SQL statement is for read purpose.
+         * @param string $sql the SQL statement
+         * @return boolean whether a SQL statement is for read purpose.
+         */
+        public function isReadQuery($sql)
+        {
+
+    2. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/Command.php at line 791 – yii\db\Schema::convertException(PDOException, 'INSERT INTO `product` (`category...')
+    3. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/Schema.php at line 448 – yii\db\Command::execute()
+    4. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/ActiveRecord.php at line 454 – yii\db\Schema::insert('product', ['category_id' => '7', 'name' => 'djdfgi', 'description' => 'ea8rusedfe', 'price' => '13.14', ...])
+    5. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/ActiveRecord.php at line 424 – yii\db\ActiveRecord::insertInternal(null)
+    6. in /Users/as/Sites/shop/vendor/yiisoft/yii2/db/BaseActiveRecord.php at line 593 – yii\db\ActiveRecord::insert(true, null)
+    7. in /Users/as/Sites/shop/controllers/ProductController.php at line 67 – yii\db\BaseActiveRecord::save()
+    61626364656667686970717273
+
+         */
+        public function actionCreate()
+        {
+            $categories = Categories::find()->all(); // need this for dropDownList in views/product/_form.php
+            $model = new Product();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'itemId' => $model->item_id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                    'categories' => $categories,
+                ]);
+
+    8. app\controllers\ProductController::actionCreate()
+    9. in /Users/as/Sites/shop/vendor/yiisoft/yii2/base/InlineAction.php at line 55 – call_user_func_array([app\controllers\ProductController, 'actionCreate'], [])
+    10. in /Users/as/Sites/shop/vendor/yiisoft/yii2/base/Controller.php at line 151 – yii\base\InlineAction::runWithParams([])
+    11. in /Users/as/Sites/shop/vendor/yiisoft/yii2/base/Module.php at line 455 – yii\base\Controller::runAction('create', [])
+    12. in /Users/as/Sites/shop/vendor/yiisoft/yii2/web/Application.php at line 84 – yii\base\Module::runAction('product/create', [])
+    13. in /Users/as/Sites/shop/vendor/yiisoft/yii2/base/Application.php at line 375 – yii\web\Application::handleRequest(yii\web\Request)
+    14. in /Users/as/Sites/shop/web/index.php at line 12 – yii\base\Application::run()
+    6789101112
+
+
+    require(__DIR__ . '/../vendor/autoload.php');
+    require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+    $config = require(__DIR__ . '/../config/web.php');
+
+    (new yii\web\Application($config))->run();
+
+$_POST = [
+    '_csrf' => 'ODUxRHowRmx6fGADMmcIVWB.X3wAWCAdbm1XJhJVMwJqBAYILH4LDQ==',
+    'Product' => [
+        'category_id' => '7',
+        'name' => 'djdfgi',
+        'description' => 'ea8rusedfe',
+        'price' => '13.14',
+        'in_stock' => '1',
+        'active' => '1',
+    ],
+];
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200',
+    'HTTP_HOST' => 'localhost',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:42.0) Gecko/20100101 Firefox/42.0',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_REFERER' => 'http://localhost/~as/shop/web/product/create',
+    'HTTP_COOKIE' => '_csrf=f3b530287191ba38ddd97fbca13059778456b991e8eb60d673b4fd8ee56667cea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22BIQGHWN9XKn8zhfqVXfbheunR17LVNMa%22%3B%7D; PHPSESSID=5835ajnggj2n7kciejia2a68n3',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '225',
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache/2.4.16 (Unix) PHP/5.5.28',
+    'SERVER_NAME' => 'localhost',
+    'SERVER_ADDR' => '::1',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '::1',
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '/~as',
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/as/Sites',
+    'SERVER_ADMIN' => 'you@example.com',
+    'SCRIPT_FILENAME' => '/Users/as/Sites/shop/web/index.php',
+    'REMOTE_PORT' => '55106',
+    'REDIRECT_URL' => '/~as/shop/web/product/create',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/~as/shop/web/product/create',
+    'SCRIPT_NAME' => '/~as/shop/web/index.php',
+    'PHP_SELF' => '/~as/shop/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1449417987.4059999,
+    'REQUEST_TIME' => 1449417987,
+];
+
+$_COOKIE = [
+    '_csrf' => 'f3b530287191ba38ddd97fbca13059778456b991e8eb60d673b4fd8ee56667cea:2:{i:0;s:5:"_csrf";i:1;s:32:"BIQGHWN9XKn8zhfqVXfbheunR17LVNMa";}',
+    'PHPSESSID' => '5835ajnggj2n7kciejia2a68n3',
+];
+
+$_SESSION = [
+    '__flash' => [],
+    '__returnUrl' => '/~as/shop/web/',
+];
+
+Yii Framework
+
+2015-12-06, 16:06:27
+
+Apache/2.4.16 (Unix) PHP/5.5.28
+
+Yii Framework/2.0.6
+2.0.6 PHP 5.5.28
+Status 500 Route product/create
+Log 36 1
+Time 616 ms Memory 8.9 MB
+DB 6 87 ms
+Asset Bundles 1
+›
+‹
+
+
+
+
+BUG-2:
+Quantity -1 in basket list
+
+ENH-1: DONE
+add phone, email and notes fields in orders table

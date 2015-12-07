@@ -55,7 +55,7 @@ use \yii\helpers\Html;
         </div>
         <div class="col-xs-8">
             <!-- uncomment below when order is implemented -->
-            <!-- <?= Html::a('Order', ['baskets/order'], ['class' => 'btn btn-success']) ?> -->
+            <?= Html::a('Order', ['baskets/order'], ['class' => 'btn btn-success']) ?>
         </div>
     </div>
 </div>

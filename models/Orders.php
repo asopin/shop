@@ -28,6 +28,10 @@ use yii\behaviors\TimestampBehavior;
  */
 class Orders extends yii\db\ActiveRecord
 {
+    const STATUS_NEW = 'New';
+    const STATUS_IN_PROGRESS = 'In progress';
+    const STATUS_DONE = 'Done';
+
     /**
      * @inheritdoc
      */
@@ -52,6 +56,8 @@ class Orders extends yii\db\ActiveRecord
             ],
         ];
     }
+
+
 
     /**
      * @inheritdoc
@@ -93,6 +99,18 @@ class Orders extends yii\db\ActiveRecord
         return $this->hasMany(OrderItem::className(), ['order_id' => 'order_id']);
     }
 
+    // public function beforeSave($insert)
+    // {
+    //     if (parent::beforeSave($insert)) {
+    //         if ($this->isNewRecord) {
+    //             $this->order_status_id = self::STATUS_NEW;
+    //         }
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -115,5 +133,15 @@ class Orders extends yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function sendEmail()
+    {
+
+        return Yii::$app->mailer->compose('order', ['order' => $this])
+            ->setTo(Yii::$app->params['adminEmail'])
+            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setSubject('New order #' . $this->order_id)
+            ->send();
     }
 }

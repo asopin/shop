@@ -163,3 +163,6 @@ Quantity -1 in basket list
 
 ENH-1: DONE
 add phone, email and notes fields in orders table
+
+REQ-1:
+Think about order flow implementation (order statuses)

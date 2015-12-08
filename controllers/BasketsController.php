@@ -191,10 +191,14 @@ class BasketsController extends Controller
             $transaction->commit();
 
             // TODO: add removal of the user's basket
-            Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
-            $order->sendEmail();
 
-            return $this->redirect('catalog/list');
+            Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
+
+            if (Yii::$app->params['sendEmail']) {
+                $order->sendEmail();
+            }
+
+            return $this->redirect('../catalog/list');
         }
 
         Yii::trace($order->getErrors());

@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'alexey.sopin@gmail.com',
+    'sendEmail' => false, // when smtp server is up - set to true
 ];

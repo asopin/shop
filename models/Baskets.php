@@ -149,7 +149,10 @@ class Baskets extends yii\db\ActiveRecord
     public function updateQuantity($userId, $itemId, $quantity)
     {
         $existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId]);
-        $existingItemForThisUser->quantity = $quantity;
+
+        if($quantity >= 1) {
+            $existingItemForThisUser->quantity = $quantity;
+        }
 
         return $existingItemForThisUser;
     }

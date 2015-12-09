@@ -155,10 +155,7 @@ Asset Bundles 1
 ›
 ‹
 
-
-
-
-BUG-2:
+BUG-2: FIXED
 Quantity -1 in basket list
 
 ENH-1: DONE
@@ -166,3 +163,12 @@ add phone, email and notes fields in orders table
 
 REQ-1:
 Think about order flow implementation (order statuses)
+
+ENH-2:
+redo basket and order so guest could buy without logging in. Use session data for basket and email for orders
+
+ENH-3:
+Make Order button in baskets/list disabled when basket is empty
+
+ENH-4:
+Show items in cart // in views\layouts\main.php

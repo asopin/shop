@@ -34,6 +34,8 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    // TODO: to implement getCount() for ENH-4
+    // $itemsInBasket = Yii::$app->baskets->getCount();
 
     // forms the top navigation menu items
     $navItems = [

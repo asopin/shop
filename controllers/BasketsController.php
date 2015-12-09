@@ -184,16 +184,18 @@ class BasketsController extends Controller
                 if (!$orderItem->save(false)) {
                     $transaction->rollBack();
                     Yii::$app->session->addFlash('error', 'Cannot place your order. Please contact us.');
-                    return $this->redirect('catalog/list');
+                    return $this->redirect('../catalog/list');
                 }
             }
 
             $transaction->commit();
 
             // TODO: add removal of the user's basket
+            $basket->removeUserPositions($userId);
 
             Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
 
+            // condition here just because no SMTP server configured yet
             if (Yii::$app->params['sendEmail']) {
                 $order->sendEmail();
             }

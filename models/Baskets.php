@@ -128,9 +128,14 @@ class Baskets extends yii\db\ActiveRecord
         if ($existingItemForThisUser = $this->findOne(['user_id' => $userId, 'item_id' => $itemId])) {
             $existingItemForThisUser->delete();
 
-            Yii::trace($existingItemForThisUser);
-
             return $existingItemForThisUser;
+        }
+    }
+
+    public function removeUserPositions($userId)
+    {
+        if ($this->findAll(['user_id' => $userId])) {
+            $this->deleteAll(['user_id' => $userId]);
         }
     }
 

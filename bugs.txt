@@ -164,11 +164,12 @@ add phone, email and notes fields in orders table
 REQ-1:
 Think about order flow implementation (order statuses)
 
-ENH-2:
+ENH-2: DONE
 redo basket and order so guest could buy without logging in. Use session data for basket and email for orders
 Comments: implementing using yii-shopping-cart. Created CartController and views.
 DONE: Need to rework Product, so it would implement CartPositionInterface.
-TODO: rework delivery methods dropdown in order.php so it would get list of methods from controller
+    ENH-2-1:
+    TODO: rework delivery methods dropdown in order.php so it would get list of methods from controller
 
 
 ENH-3: DONE

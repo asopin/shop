@@ -54,7 +54,11 @@ use \yii\helpers\Html;
             Total: $<?= $total ?>
         </div>
         <div class="col-xs-2">
-            <?= Html::a('Order', ['cart/order'], ['class' => 'btn btn-success']) ?>
+            <?php if($products) { ?>
+                <?= Html::a('Order', ['cart/order'], ['class' => 'btn btn-success']) ?>
+            <?php }
+                //TODO: else echo some message. This probably should be a value stored somewhere in parameters or even be handled in cart/order controller method. Or show Add or Catalog, etc.
+            ?>
         </div>
     </div>
 </div>

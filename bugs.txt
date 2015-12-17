@@ -1,4 +1,4 @@
-BUG-1:
+BUG-1: // wouldn't happen when admin part will not be visible if not admin logged in
 Exception
 Integrity constraint violation – yii\db\IntegrityException
 SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'created_by' cannot be null
@@ -166,8 +166,11 @@ Think about order flow implementation (order statuses)
 
 ENH-2:
 redo basket and order so guest could buy without logging in. Use session data for basket and email for orders
+Comments: implementing using yii-shopping-cart. Created CartController and views.
+TODO: Need to rework Product, so it would implement CartPositionInterface.
 
-ENH-3:
+
+ENH-3: DONE
 Make Order button in baskets/list disabled when basket is empty
 
 ENH-4:

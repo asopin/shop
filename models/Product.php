@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yz\shoppingcart\CartPositionInterface;
+use yz\shoppingcart\CartPositionTrait;
 
 /**
  * This is the model class for table "product".
@@ -26,8 +28,9 @@ use Yii;
  * @property Images[] $images
  * @property Orders[] $orders
  */
-class Product extends \app\models\ShopActiveRecord
+class Product extends \app\models\ShopActiveRecord implements CartPositionInterface
 {
+    use CartPositionTrait;
     /**
      * @inheritdoc
      */
@@ -73,13 +76,13 @@ class Product extends \app\models\ShopActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBaskets()
-    {
-        return $this->hasMany(Baskets::className(), ['item_id' => 'item_id']);
-    }
+    // /**
+    //  * @return \yii\db\ActiveQuery
+    //  */
+    // public function getBaskets()
+    // {
+    //     return $this->hasMany(Baskets::className(), ['item_id' => 'item_id']);
+    // }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -113,12 +116,20 @@ class Product extends \app\models\ShopActiveRecord
         return $this->hasMany(Images::className(), ['item_id' => 'item_id']);
     }
 
+    // /**
+    //  * @return \yii\db\ActiveQuery
+    //  */
+    // public function getOrders()
+    // {
+    //     return $this->hasMany(Orders::className(), ['item_id' => 'item_id']);
+    // }
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getOrders()
+    public function getOrderItems()
     {
-        return $this->hasMany(Orders::className(), ['item_id' => 'item_id']);
+        return $this->hasMany(OrderItem::className(), ['item_id' => 'item_id']);
     }
 
     /**
@@ -128,12 +139,20 @@ class Product extends \app\models\ShopActiveRecord
     {
         return $this->name;
     }
-    
+
     /**
      * @return Float
      */
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getId()
+    {
+        return $this->item_id;
     }
 }

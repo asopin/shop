@@ -30,7 +30,7 @@ use \yii\helpers\Html;
             <?= Html::encode($product->getName()) ?>
         </div>
         <div class="col-xs-2">
-            $<? $product->getPrice() ?>
+            $<?= $product->getPrice() ?>
         </div>
         <div class="col-xs-2">
             <?= $quantity = $product->getQuantity()?>

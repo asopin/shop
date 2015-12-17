@@ -167,7 +167,8 @@ Think about order flow implementation (order statuses)
 ENH-2:
 redo basket and order so guest could buy without logging in. Use session data for basket and email for orders
 Comments: implementing using yii-shopping-cart. Created CartController and views.
-TODO: Need to rework Product, so it would implement CartPositionInterface.
+DONE: Need to rework Product, so it would implement CartPositionInterface.
+TODO: rework delivery methods dropdown in order.php so it would get list of methods from controller
 
 
 ENH-3: DONE

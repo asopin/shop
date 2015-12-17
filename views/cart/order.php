@@ -1,6 +1,8 @@
 <?php
-use \yii\helpers\Html;
-use \yii\bootstrap\ActiveForm;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use app\models\DeliveryMethods;
 
 /* @var $this yii\web\View */
 /* @var $products app\models\Product[] */
@@ -58,6 +60,7 @@ use \yii\bootstrap\ActiveForm;
              <?= $form->field($order, 'phone') ?>
              <?= $form->field($order, 'email') ?>
              <?= $form->field($order, 'notes')->textarea() ?>
+             <?= $form->field($order, 'delivery_method_id')->dropDownList(ArrayHelper::map(DeliveryMethods::find()->all(), 'delivery_method_id', 'delivery_method_name')) ?>
         </div>
         <div class="form-group row">
             <div class="col-xs-12">

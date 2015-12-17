@@ -75,7 +75,7 @@ class CartController extends \yii\web\Controller
                 if(!$orderItem->save(false)) {
                     $transaction->rollBack();
                     Yii::$app->session->addFlash('error', 'Cannot place your order. Please contact us.'); // TODO: may need to add Yii::t()
-                    return $this->redirect('catalog/list');
+                    return $this->redirect('../'); // redirect to web root
                 }
             }
 
@@ -85,7 +85,7 @@ class CartController extends \yii\web\Controller
             Yii::$app->session->addFlash('success', 'Thanks for your order. We\'ll contact you soon.');
             $order->sendEmail();
 
-            return $this->redirect('catalog/list');
+            return $this->redirect('../'); // redirect to web root
         }
 
         return $this->render('order', [

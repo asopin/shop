@@ -67,9 +67,10 @@ class Orders extends yii\db\ActiveRecord
         return [
             // [['user_id', 'delivery_method_id', 'order_status_id', 'date_added', 'date_modified', 'phone', 'email'], 'required'],
             [['phone' , 'email'], 'required'],
-            [['user_id', 'delivery_method_id', 'order_status_id'], 'integer'],
+            [['delivery_method_id', 'order_status_id'], 'integer'],
             [['date_added', 'date_modified'], 'safe'],
-            [['phone', 'email', 'notes'], 'string', 'max' => 255]
+            [['phone', 'email', 'notes'], 'string', 'max' => 255],
+            ['order_status_id', 'default', 'value' => 1],   // Set order status New if order_status_id passed empty. TODO: think about the best way to give default value without using magic numbers
         ];
     }
 

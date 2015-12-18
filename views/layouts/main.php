@@ -67,38 +67,40 @@ AppAsset::register($this);
     <div class="container">
         <div class="col-md-2">
             <?php
-            // show left menu items
-            $leftMenuItems = [
-                [
-                    // TODO: add expanding menu based on categories tree
-                    'label' => 'Product',
-                    'url' => [
-                        'product/index'
-                    ],
-                ],
-                // TODO: this should be visible only to users with Admin/Moderator permissions
-                [
-                    'label' => 'Categories',
-                    'url' => [
-                        'categories/index'
-                    ],
-                ],
-                [
-                    'label' => 'Delivery Methods',
-                    'url' => [
-                        'delivery-methods/index'
-                    ],
-                ],
-                [
-                    'label' => 'Order Statuses',
-                    'url' => [
-                        'order-statuses/index'
-                    ],
-                ],
-            ];
-            echo Nav::widget([
-                'items' => $leftMenuItems,
-            ]);
+            // // show left menu items
+            // $leftMenuItems = [
+            //     [
+            //         // TODO: add expanding menu based on categories tree
+            //         'label' => 'Product',
+            //         'url' => [
+            //             'product/index'
+            //         ],
+            //     ],
+            //     // TODO: this should be visible only to users with Admin/Moderator permissions
+            //     [
+            //         'label' => 'Categories',
+            //         'url' => [
+            //             'categories/index'
+            //         ],
+            //     ],
+            //     [
+            //         'label' => 'Delivery Methods',
+            //         'url' => [
+            //             'delivery-methods/index'
+            //         ],
+            //     ],
+            //     [
+            //         'label' => 'Order Statuses',
+            //         'url' => [
+            //             'order-statuses/index'
+            //         ],
+            //     ],
+            // ];
+            // if (!Yii::$app->user->isGuest) {
+            //     echo Nav::widget([
+            //         'items' => $leftMenuItems,
+            //     ]);
+            // }
             ?>
         </div>
         <div class="col-md-10">

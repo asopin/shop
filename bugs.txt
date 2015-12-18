@@ -177,3 +177,10 @@ Make Order button in baskets/list disabled when basket is empty
 
 ENH-4:
 Show items in cart // in views\layouts\main.php
+
+ENH-5:
+Hide admin functions from guests and non-admins
+TODO: move out of layouts/main.php admin functions. Add Admin button in top nav menu for admin users. ???Don't show catalog for admin users unless they choose it???
+
+QUE-1:
+FOR REFACTORING: do I need SiteController and views?

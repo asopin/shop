@@ -2,12 +2,12 @@
 
 namespace app\models;
 
-use dektrium\user\models\BaseUser;
+use dektrium\user\models\User;
 
 /**
  *
  */
-class User extends BaseUser
+class User extends User
 {
     const ROLE_USER = 10;
     const ROLE_MODERATOR = 20;
@@ -16,6 +16,18 @@ class User extends BaseUser
     public function register()
     {
         // do your magic
+    }
+
+    /**
+     * @return boolean [description]
+     */
+    public function isAdmin()
+    {
+        if ($this->role == ROLE_ADMIN) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
  ?>

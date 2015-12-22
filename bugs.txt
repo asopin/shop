@@ -175,12 +175,16 @@ DONE: Need to rework Product, so it would implement CartPositionInterface.
 ENH-3: DONE
 Make Order button in baskets/list disabled when basket is empty
 
-ENH-4:
+ENH-4: DONE
 Show items in cart // in views\layouts\main.php
 
 ENH-5:
 Hide admin functions from guests and non-admins
 TODO: move out of layouts/main.php admin functions. Add Admin button in top nav menu for admin users. ???Don't show catalog for admin users unless they choose it???
+NOTE: not sure how to implement this. Looks like I need a different layout for admin. Current solution looks more simple
 
 QUE-1:
 FOR REFACTORING: do I need SiteController and views?
+
+REQ-2:
+Show order status to customer. TODO: Elaborate details.

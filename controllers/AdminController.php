@@ -23,8 +23,6 @@ class AdminController extends Controller
 
     public function actionList()
     {
-
-
         // Check for user role. Only admins can see it, otherwise redirect back
         //
         // if !admin TODO: condition should be really for admin
@@ -58,14 +56,10 @@ class AdminController extends Controller
                 ],
             ];
 
-            return
-                // array of key values
-                $this->render('list', [
+            return $this->render('list', [
                     'leftMenuItems' => $leftMenuItems
                 ]);
-
         } else {
-        // redirect back
             $this->goBack();
         }
     }

@@ -28,7 +28,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Orders extends yii\db\ActiveRecord
 {
-    const STATUS_NEW = 'New';
+    const STATUS_NEW = 1; //'New';
     const STATUS_IN_PROGRESS = 'In progress';
     const STATUS_DONE = 'Done';
 
@@ -70,7 +70,7 @@ class Orders extends yii\db\ActiveRecord
             [['delivery_method_id', 'order_status_id'], 'integer'],
             [['date_added', 'date_modified'], 'safe'],
             [['phone', 'email', 'notes'], 'string', 'max' => 255],
-            ['order_status_id', 'default', 'value' => 1],   // Set order status New if order_status_id passed empty. TODO: think about the best way to give default value without using magic numbers
+            ['order_status_id', 'default', 'value' => self::STATUS_NEW],   // Set order status New if order_status_id passed empty. TODO: think about the best way to give default value without using magic numbers. This can be moved to init()
         ];
     }
 
